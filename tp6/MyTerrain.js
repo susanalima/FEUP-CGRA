@@ -23,7 +23,7 @@ class MyTerrain extends Plane{
 		//this.sandAppearence.setSpecular(1,1,0.6,1);	
 		this.sandAppearence.setShininess(6);
 		//this.sandAppearence.setTextureWrap('REPEAT','REPEAT');
-		this.sandAppearence.loadTexture("/images/sand.jpg");
+		this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
 	};
 
 	display()
