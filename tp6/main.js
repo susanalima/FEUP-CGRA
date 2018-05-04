@@ -27,6 +27,7 @@ serialInclude([
 	'MyBackP2.js',
 	'MyMovingVehicle.js',
 	'MyInterface.js',
+	'MyFender.js',
 	main=function() {
 		var app = new CGFapplication(document.body);
 		var myScene = new LightingScene();
