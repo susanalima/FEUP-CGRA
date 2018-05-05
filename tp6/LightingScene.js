@@ -56,6 +56,8 @@ class LightingScene extends CGFscene
 
 
 		//this.door = new MyFrontRightDoor(this,0,1,0,1);
+
+
 		
 	};
 
@@ -114,7 +116,7 @@ class LightingScene extends CGFscene
 			this.vehicle.turnFrontWheelsToTheLeft();
 
 
-			//this.vehicle.movSide += 5;
+			this.vehicle.movSide += 5;
 
 			keysPressed=true;
 			
@@ -124,7 +126,7 @@ class LightingScene extends CGFscene
 			text+=" D ";
 			this.vehicle.turnFrontWheelsToTheRight();
 
-			//this.vehicle.movSide -= 5;
+			this.vehicle.movSide -= 5;
 		
 			keysPressed=true;
 			
@@ -192,11 +194,11 @@ class LightingScene extends CGFscene
 		//veiculo
 		this.pushMatrix();
 		this.translate(2,0,0);
-		
 		this.vehicle.display();
 		this.popMatrix();
 
-
+	
+	
 
 
 		//cana de ligar e desligar as luzes

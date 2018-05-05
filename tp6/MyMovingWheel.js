@@ -6,14 +6,16 @@ class MyMovingWheel extends CGFobject{
 		this.wheel = new MyWheel(scene , slices, minS, maxS, minT, maxT, rad, length);
 		this.isMoving = true;
 		this.deltaMov = 0;
-		this.previousMov = -1;
+	
 		this.angle = 0;
 		this.rad = rad;
 		
 		this.length = length;
 		this.movSide = 0;
-
 		
+	
+		this.previousVelocity = 0;
+
 		this.perimeter = Math.PI*rad*2.0;
 		this.velocity = 0;
 	};
@@ -22,24 +24,16 @@ class MyMovingWheel extends CGFobject{
 	//a cena das rodas nao funciona
 	update(currTime)
 	{
-		var temp = this.deltaMov;
-	
-		this.deltaMov = this.velocity/this.perimeter;
-
-		if (temp != this.deltaMov)
-		    this.previousMov = temp;
-
-		if (this.previousMov < this.deltaMov)
-		{
-			this.angle += this.deltaMov;
-		}
-		else
-		{
-			if(this.previousMov > this.deltaMov)
-				this.angle -= this.deltaMov;
-		}
 		
-		
+		this.deltaMov -= this.velocity/this.perimeter;
+
+	}
+
+
+	setVelocity(newVelocity)
+	{
+		this.previousVelocity = this.velocity;
+		this.velocity = newVelocity;
 	}
 
 	
@@ -54,7 +48,7 @@ class MyMovingWheel extends CGFobject{
 		if (this.isMoving)
 		{
 			this.scene.translate(0,this.rad,0);
-			this.scene.rotate(this.angle*Math.PI/180,0,0,1);
+			this.scene.rotate(this.deltaMov*Math.PI/180,0,0,1);
 			this.scene.translate(0,-this.rad,0);
 
 		}

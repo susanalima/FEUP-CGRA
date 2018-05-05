@@ -40,12 +40,7 @@ class MyMovingVehicle extends CGFobject{
 			else
 			{
 				this.setWheelsMov(false);
-
 			}
-			
-
-
-
 	}
 
 
@@ -76,7 +71,7 @@ class MyMovingVehicle extends CGFobject{
 	}
 
 
-	setWheelsVelocity()
+	/*setWheelsVelocity()
 	{
 		this.vehicle.backLeftWheel.velocity = this.x;
 				
@@ -86,15 +81,22 @@ class MyMovingVehicle extends CGFobject{
 
 		this.vehicle.frontRightWheel.velocity = this.x;
 
-		this.vehicle.backLeftWheel.isMoving = true;
+		this.setWheelsMov(true);
+	}*/
+
+	setWheelsVelocity()
+	{
+		this.vehicle.backLeftWheel.setVelocity(this.x);
 				
-		this.vehicle.backRightWheel.isMoving = true;
+		this.vehicle.backRightWheel.setVelocity(this.x);
 
-		this.vehicle.frontLeftWheel.isMoving = true;
+		this.vehicle.frontLeftWheel.setVelocity(this.x);
 
-		this.vehicle.frontRightWheel.isMoving = true;
+		this.vehicle.frontRightWheel.setVelocity(this.x);
 
+		this.setWheelsMov(true);
 	}
+
 
 
 	turnFrontWheelsToTheRight()
@@ -104,8 +106,6 @@ class MyMovingVehicle extends CGFobject{
 			this.vehicle.frontRightWheel.movSide -= 5;
 			this.vehicle.frontLeftWheel.movSide -= 5;
 		}
-
-		console.log(this.maxTurningAngle);
 	}
 
 
@@ -121,11 +121,11 @@ class MyMovingVehicle extends CGFobject{
 
 	display()
 	{
-/*
-		this.scene.translate(-0.1,0,-0.9);
-		this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
-		this.scene.translate(0.1,0,0.9);
-		*/
+
+		//this.scene.translate(-0.1,0,-0.9);
+		//this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
+		//this.scene.translate(0.1,0,0.9);
+		
 		if(this.x < -0.0001  || this.x > 0.0001)
 			this.scene.translate(this.x,0,0);
 
