@@ -23,7 +23,7 @@ class LightingScene extends CGFscene
 		this.initCameras();
 
 		this.initLights();
-		//mudar para ser azul cor do ceu :)
+		
 		this.gl.clearColor(0.53, 0.81, 0.98, 1.0);
 		this.gl.clearDepth(100.0);
 		this.gl.enable(this.gl.DEPTH_TEST);

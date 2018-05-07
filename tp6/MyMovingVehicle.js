@@ -86,13 +86,13 @@ class MyMovingVehicle extends CGFobject{
 
 	setWheelsVelocity()
 	{
-		this.vehicle.backLeftWheel.setVelocity(this.x);
+		this.vehicle.backLeftWheel.setVelocity(this.velocity);
 				
-		this.vehicle.backRightWheel.setVelocity(this.x);
+		this.vehicle.backRightWheel.setVelocity(this.velocity);
 
-		this.vehicle.frontLeftWheel.setVelocity(this.x);
+		this.vehicle.frontLeftWheel.setVelocity(this.velocity);
 
-		this.vehicle.frontRightWheel.setVelocity(this.x);
+		this.vehicle.frontRightWheel.setVelocity(this.velocity);
 
 		this.setWheelsMov(true);
 	}

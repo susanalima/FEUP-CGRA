@@ -21,11 +21,11 @@ class MyMovingWheel extends CGFobject{
 	};
 	
 
-	//a cena das rodas nao funciona
+	//a cena das rodas semi funciona
 	update(currTime)
 	{
 		
-		this.deltaMov -= this.velocity/this.perimeter;
+		this.deltaMov += this.velocity/this.perimeter;
 
 	}
 
@@ -48,7 +48,7 @@ class MyMovingWheel extends CGFobject{
 		if (this.isMoving)
 		{
 			this.scene.translate(0,this.rad,0);
-			this.scene.rotate(this.deltaMov*Math.PI/180,0,0,1);
+			this.scene.rotate(this.deltaMov*1000*Math.PI/180,0,0,1);
 			this.scene.translate(0,-this.rad,0);
 
 		}
