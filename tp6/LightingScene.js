@@ -48,7 +48,8 @@ class LightingScene extends CGFscene
 		//roda
 		this.wheel = new MyMovingWheel(this, 20, -1, 1, -1, 1, 0.5, 0.4);
 
-
+		//para-lamas
+		this.fender = new MyFenderExt(this,8,1);
 		
 
 		//vehicle
@@ -172,7 +173,7 @@ class LightingScene extends CGFscene
 
 		// Draw axis
 	
-		if (this.axisDisplay)
+		//if (this.axisDisplay)
 			this.axis.display();
 	
 
@@ -194,10 +195,13 @@ class LightingScene extends CGFscene
 		//veiculo
 		this.pushMatrix();
 		this.translate(2,0,0);
-		this.vehicle.display();
+		//this.vehicle.display();
 		this.popMatrix();
 
-	
+			
+		this.pushMatrix();
+		this.fender.display();
+		this.popMatrix();
 	
 
 
