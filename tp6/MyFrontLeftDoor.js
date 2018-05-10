@@ -19,8 +19,8 @@ class MyFrontLeftDoor extends CGFobject
 	initBuffers()
 	{
 		this.vertices = [
-			0,0,1.8,
-			1.2,0,1.8,
+			0,-0.08,1.8,
+			1.2,-0.08,1.8,
 			0,0.7,1.8,
 			0.5,1.2,1.8,
 			1.2,1.2,1.8,

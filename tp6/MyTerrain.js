@@ -2,7 +2,7 @@
 /** Represents a plane with nrDivs divisions along both axis, with center at (0,0) */
 class MyTerrain extends Plane{
 
-	constructor(scene, minS, maxS, minT, maxT, nrDivs, length,width) 
+	constructor(scene, minS, maxS, minT, maxT, nrDivs, length,width, altimetry) 
 	{
 		super(scene, minS, maxS, minT, maxT,nrDivs);
 		this.scene = scene;
@@ -13,7 +13,7 @@ class MyTerrain extends Plane{
 		this.nrDivs = nrDivs;
 		this.length = length;
 		this.width = width;
-		//this.altimetry = altimetry;
+		this.altimetry = altimetry;
 
 
 		//temos de arranjar este chao que isto esta uma desgraca
@@ -25,9 +25,9 @@ class MyTerrain extends Plane{
 		this.sandAppearence.setShininess(4);
 		
 
-		this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
+		//this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
 	
-		//this.sandAppearence.loadTexture("/images/sand.jpg");
+		this.sandAppearence.loadTexture("/images/sand.jpg");
 	};
 
 	display()

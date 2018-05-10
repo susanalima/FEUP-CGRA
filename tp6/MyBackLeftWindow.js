@@ -1,5 +1,5 @@
 
-class MyFrontP2 extends CGFobject
+class MyBackLeftWindow extends CGFobject
 {
 	constructor(scene,minS,maxS,minT,maxT) 
 	{
@@ -19,26 +19,26 @@ class MyFrontP2 extends CGFobject
 	initBuffers()
 	{
 		this.vertices = [
-			-1,0.01,0,
-			-1,0.01,1.8,
-			-1,0.7,0,
-			-1,0.7,1.8,
+			1.2,0.7,1.8,
+			2.4,0.7,1.8,
+			1.2,1.2,1.8,
+			1.9,1.2,1.8,
 			];
 
 		this.indices = [
 			0,1,2,
 			3,2,1,
-			
 
 		];
 		
+		
+
 		this.normals = [
-		-1,0,0,
-		-1,0,0,
-		-1,0,0,
-		-1,0,0,
-		
-		
+		0,0,1,
+		0,0,1,
+		0,0,1,
+		0,0,1,
+		0,0,1,
 		];
 
 /*

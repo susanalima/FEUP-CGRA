@@ -40,9 +40,22 @@ class LightingScene extends CGFscene
 	
 		this.setUpdatePeriod(20);
 
-
+			
+			
+		this.altimetry= [
+						[ 2.0 , 3.0 , 2.0, 4.0, 2.5, 2.4, 2.3, 1.3 ],
+						[ 2.0 , 3.0 , 2.0, 4.0, 7.5, 6.4, 4.3, 1.3 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 2.0, 4.0, 2.5, 2.4, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 2.0, 4.0, 3.5, 2.4, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 2.0 , 3.0 , 2.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
+						];
+		
 		//terreno
-		this.terrain = new MyTerrain(this,0,1,0,1,50,50,50);
+		this.terrain = new MyTerrain(this,0,1,0,1,9,50,50,this.altimetry);
 
 		
 		//roda
@@ -61,8 +74,8 @@ class LightingScene extends CGFscene
 		//vehicle
 		this.vehicle = new MyMovingVehicle(this);
 
-
 		this.deltaSide = 1;
+	
 
 		
 	};

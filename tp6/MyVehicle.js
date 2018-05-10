@@ -38,6 +38,14 @@ class MyVehicle extends CGFobject{
 
 		this.fender4 = new MyFenderComplete(this.scene,8,1,2);
 
+		this.backLeftDoor = new MyBackLeftDoor(this.scene,0,1,0,1);
+
+		this.backRightDoor = new MyBackRightDoor(this.scene,0,1,0,1);
+
+		this.backLeftWindow = new MyBackLeftWindow(this.scene,0,1,0,1);
+
+		this.backRightWindow = new MyBackRightWindow(this.scene,0,1,0,1);
+
 	};
 	
 	display()
@@ -145,6 +153,25 @@ class MyVehicle extends CGFobject{
 		this.scene.popMatrix();
 			
 	
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backLeftDoor.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backRightDoor.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backLeftWindow.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backRightWindow.display();
+		this.scene.popMatrix();
 
 
 	}
