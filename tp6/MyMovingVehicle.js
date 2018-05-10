@@ -73,19 +73,6 @@ class MyMovingVehicle extends CGFobject{
 	}
 
 
-	/*setWheelsVelocity()
-	{
-		this.vehicle.backLeftWheel.velocity = this.x;
-				
-		this.vehicle.backRightWheel.velocity = this.x;
-
-		this.vehicle.frontLeftWheel.velocity = this.x;
-
-		this.vehicle.frontRightWheel.velocity = this.x;
-
-		this.setWheelsMov(true);
-	}*/
-
 	setWheelsVelocity()
 	{
 		this.vehicle.backLeftWheel.setVelocity(this.velocity);
@@ -103,7 +90,7 @@ class MyMovingVehicle extends CGFobject{
 
 	turnFrontWheelsToTheRight()
 	{
-		if (this.vehicle.frontRightWheel.movSide !=  -this.maxTurningAngle)
+		if (this.vehicle.frontRightWheel.movSide >  -this.maxTurningAngle)
 		{
 			this.vehicle.frontRightWheel.movSide -= 5;
 			this.vehicle.frontLeftWheel.movSide -= 5;
@@ -113,7 +100,7 @@ class MyMovingVehicle extends CGFobject{
 
 	turnFrontWheelsToTheLeft()
 	{
-		if (this.vehicle.frontRightWheel.movSide != this.maxTurningAngle)
+		if (this.vehicle.frontRightWheel.movSide < this.maxTurningAngle)
 		{
 			this.vehicle.frontRightWheel.movSide += 5;
 			this.vehicle.frontLeftWheel.movSide += 5;

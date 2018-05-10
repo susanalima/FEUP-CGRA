@@ -40,7 +40,7 @@ class MyMovingWheel extends CGFobject{
 
 	display()
 	{
-
+		//if(this.movSide)
 		this.scene.translate(0,0,this.length/2);
 		this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
 		this.scene.translate(0,0,-this.length/2);

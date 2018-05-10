@@ -81,8 +81,6 @@ class LightingScene extends CGFscene
         this.lights[1].enable();
         this.lights[1].setVisible(true);
        
-
-
 	};
 
 	updateLights() 
@@ -115,10 +113,12 @@ class LightingScene extends CGFscene
 			text+=" A ";
 			this.vehicle.turnFrontWheelsToTheLeft();
 			this.vehicle.angle += 0.05;
-
+			
+		
 			this.deltaSide = 1;
 				
 			keysPressed=true;
+
 			
 		}
 		if (this.gui.isKeyPressed("KeyD"))
@@ -127,9 +127,11 @@ class LightingScene extends CGFscene
 			this.vehicle.turnFrontWheelsToTheRight();
 			
 			this.vehicle.angle -= 0.05;
-		
-			this.deltaSide = -1;
+			
+			
+				this.deltaSide = -1;
 			keysPressed=true;
+
 			
 		}
 		if(!this.gui.isKeyPressed("KeyA") && !this.gui.isKeyPressed("KeyD") && this.vehicle.vehicle.frontRightWheel.movSide != 0)
