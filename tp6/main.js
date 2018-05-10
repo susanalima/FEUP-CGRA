@@ -29,6 +29,7 @@ serialInclude([
 	'MyInterface.js',
 	'MyFenderExt.js',
 	'MyFenderInt.js',
+	'MyFenderComplete.js',
 	main=function() {
 		var app = new CGFapplication(document.body);
 		var myScene = new LightingScene();

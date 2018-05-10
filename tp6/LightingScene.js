@@ -49,8 +49,14 @@ class LightingScene extends CGFscene
 		this.wheel = new MyMovingWheel(this, 20, -1, 1, -1, 1, 0.5, 0.4);
 
 		//para-lamas
-		this.fender = new MyFenderExt(this,8,1);
 		
+		this.fender1 = new MyFenderComplete(this,8,1,2);
+
+		this.fender2 = new MyFenderComplete(this,8,1,2);
+
+		this.fender3 = new MyFenderComplete(this,8,1,2);
+
+		this.fender4 = new MyFenderComplete(this,8,1,2);
 
 		//vehicle
 		this.vehicle = new MyMovingVehicle(this);
@@ -189,11 +195,7 @@ class LightingScene extends CGFscene
 		this.popMatrix();
 
 			
-		/*this.pushMatrix();
-		this.fender.display();
-		this.popMatrix();*/
 	
-
 
 
 

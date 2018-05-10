@@ -30,7 +30,13 @@ class MyVehicle extends CGFobject{
 
 		this.backRightWheel = new MyMovingWheel(this.scene, 20, -1, 1, -1, 1, 0.4, 0.4);
 
-	
+		this.fender1 = new MyFenderComplete(this.scene,8,1,2);
+
+		this.fender2 = new MyFenderComplete(this.scene,8,1,2);
+
+		this.fender3 = new MyFenderComplete(this.scene,8,1,2);
+
+		this.fender4 = new MyFenderComplete(this.scene,8,1,2);
 
 	};
 	
@@ -109,6 +115,37 @@ class MyVehicle extends CGFobject{
 		this.scene.translate(2.4,0,1.5);
 		this.backRightWheel.display();
 		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.scale(0.5,0.65,0.5);
+		this.scene.translate(-1,0.498,3.6)
+		this.fender1.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.scale(0.5,0.68,0.5);
+		this.scene.translate(4.8,0.42,3.6)
+		this.fender2.display();
+		this.scene.popMatrix();
+
+		
+		this.scene.pushMatrix();
+		this.scene.rotate(Math.PI, 0,1,0);
+		this.scene.scale(0.5,0.68,0.5);
+		this.scene.translate(-4.8,0.42,0)
+		this.fender3.display();
+		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.rotate(Math.PI, 0,1,0);
+		this.scene.scale(0.5,0.65,0.5);
+		this.scene.translate(1,0.498,0)
+		this.fender4.display();
+		this.scene.popMatrix();
+			
+	
+
 
 	}
 
