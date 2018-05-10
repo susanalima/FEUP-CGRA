@@ -6,14 +6,14 @@ class MyMovingVehicle extends CGFobject{
 		this.vehicle = new MyVehicle(scene);
 		this.isMoving = true;
 		this.xdeltaMov = 20;
-		this.x = 0;
+		this.x = -1.4;
 
 		this.ydeltaMov = 20;
 		this.y = 0;
-
+		this.z = -0.9;
 
 		this.previousMov = 0;
-		this.angle = 0;
+		this.angle = Math.PI;
 		this.velocity = 0;
 
 
@@ -21,6 +21,7 @@ class MyMovingVehicle extends CGFobject{
 
 
 		this.movSide = 0;
+
 	
 	};
 	
@@ -30,7 +31,8 @@ class MyMovingVehicle extends CGFobject{
 	{
 			
 
-			this.x -= this.velocity*this.xdeltaMov;
+			this.x -= this.velocity*this.xdeltaMov*Math.cos(this.angle);
+			this.z += this.velocity*this.xdeltaMov*Math.sin(this.angle);
 		
 			if(this.x < -0.0001  || this.x > 0.0001)
 			{
@@ -122,13 +124,17 @@ class MyMovingVehicle extends CGFobject{
 	display()
 	{
 
-		
-		this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
+	
+		this.scene.translate(this.x+1.4,0,this.z+0.9);
+			
+		this.scene.rotate(this.angle,0,1,0);
 		//this.scene.translate(0.1,0,0.9);
-		this.scene.translate(-1.4,0,-0.9);
-		
+	
+		this.scene.translate(-this.x-1.4,0,-this.z-0.9);
+			
+
 		if(this.x < -0.0001  || this.x > 0.0001)
-			this.scene.translate(this.x,0,0);
+			this.scene.translate(this.x,0,this.z);
 
 		
 		this.vehicle.display();

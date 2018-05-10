@@ -115,7 +115,7 @@ class LightingScene extends CGFscene
 			this.vehicle.turnFrontWheelsToTheLeft();
 
 
-			this.vehicle.movSide += 5;
+			this.vehicle.angle += 0.05;
 
 			keysPressed=true;
 			
@@ -125,7 +125,7 @@ class LightingScene extends CGFscene
 			text+=" D ";
 			this.vehicle.turnFrontWheelsToTheRight();
 
-			this.vehicle.movSide -= 5;
+			this.vehicle.angle -= 0.05;
 		
 			keysPressed=true;
 			
@@ -171,7 +171,7 @@ class LightingScene extends CGFscene
 
 		// Draw axis
 	
-		if (this.axisDisplay)
+	//	if (this.axisDisplay)
 			this.axis.display();
 	
 
