@@ -46,6 +46,12 @@ class MyVehicle extends CGFobject{
 
 		this.backRightWindow = new MyBackRightWindow(this.scene,0,1,0,1);
 
+		this.backP3 = new MyBackP3(this.scene,0,1,0,1);
+
+		this.backLeft = new MyBackLeft(this.scene,0,1,0,1);
+
+		this.backRight = new MyBackRight(this.scene,0,1,0,1);
+
 	};
 	
 	display()
@@ -172,6 +178,23 @@ class MyVehicle extends CGFobject{
 		this.scene.translate(0,0.4,0);
 		this.backRightWindow.display();
 		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backLeft.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backRight.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.backP3.display();
+		this.scene.popMatrix();
+
 
 
 	}

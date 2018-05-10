@@ -198,7 +198,7 @@ class LightingScene extends CGFscene
 
 		// Draw axis
 	
-	//	if (this.axisDisplay)
+		if (this.axisDisplay)
 			this.axis.display();
 	
 

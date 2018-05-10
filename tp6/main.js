@@ -34,6 +34,9 @@ serialInclude([
 	'MyBackLeftDoor.js',
 	'MyBackLeftWindow.js',
 	'MyBackRightWindow.js',
+	'MyBackP3.js',
+	'MyBackLeft.js',
+	'MyBackRight.js',
 	main=function() {
 		var app = new CGFapplication(document.body);
 		var myScene = new LightingScene();
