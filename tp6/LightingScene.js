@@ -62,6 +62,7 @@ class LightingScene extends CGFscene
 		this.vehicle = new MyMovingVehicle(this);
 
 
+		this.deltaSide = 1;
 
 		
 	};
@@ -111,7 +112,7 @@ class LightingScene extends CGFscene
 		{
 			text+=" S ";
 			this.vehicle.velocity = this.vehicle.velocity - 0.0001;
-				
+			
 			keysPressed=true;
 			
 		}
@@ -119,10 +120,10 @@ class LightingScene extends CGFscene
 		{
 			text+=" A ";
 			this.vehicle.turnFrontWheelsToTheLeft();
-
-
 			this.vehicle.angle += 0.05;
 
+			this.deltaSide = 1;
+				
 			keysPressed=true;
 			
 		}
@@ -130,21 +131,26 @@ class LightingScene extends CGFscene
 		{
 			text+=" D ";
 			this.vehicle.turnFrontWheelsToTheRight();
-
+			
 			this.vehicle.angle -= 0.05;
 		
+			this.deltaSide = -1;
 			keysPressed=true;
 			
 		}
-		if (keysPressed)
-		console.log(text);
+		if(!this.gui.isKeyPressed("KeyA") && !this.gui.isKeyPressed("KeyD") && this.vehicle.vehicle.frontRightWheel.movSide != 0)
+		{	
+			this.vehicle.vehicle.frontRightWheel.movSide -= this.deltaSide;
+			this.vehicle.vehicle.frontLeftWheel.movSide -= this.deltaSide;
+		}
+		
 	}
 
 
 	update(currTime)
 	{
 		this.checkKeys();
-		this.vehicle.update(currTime);
+		this.vehicle.update(currTime);		
 
 	}
 
