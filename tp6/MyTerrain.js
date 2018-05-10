@@ -13,21 +13,21 @@ class MyTerrain extends Plane{
 		this.nrDivs = nrDivs;
 		this.length = length;
 		this.width = width;
+		//this.altimetry = altimetry;
 
 
-
-//temos de arranjar este chao que isto esta uma desgraca
+		//temos de arranjar este chao que isto esta uma desgraca
+		//ja nao esta assim tao mau xd
 		this.sandAppearence = new CGFappearance(this.scene);
 		this.sandAppearence.setAmbient(0.3,0.5,0.4,1);
 		this.sandAppearence.setDiffuse(1,1,0.6,1);
-		//this.sandAppearence.setSpecular(1,1,0.6,1);	
-		this.sandAppearence.setShininess(6);
-		//this.sandAppearence.setTextureWrap('REPEAT','REPEAT');
+		this.sandAppearence.setSpecular(0.2,0.2,0.2,1);	
+		this.sandAppearence.setShininess(4);
 		
 
-		this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
+		//this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
 	
-		//this.sandAppearence.loadTexture("/images/sand.jpg");
+		this.sandAppearence.loadTexture("/images/sand.jpg");
 	};
 
 	display()

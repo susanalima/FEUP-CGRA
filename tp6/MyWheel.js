@@ -25,9 +25,9 @@ class MyWheel extends CGFobject{
 		this.wheelAppearance.setDiffuse(0.6,0.6,0.6,1);
 		this.wheelAppearance.setSpecular(0.8,0.8,0.8,1);	
 		this.wheelAppearance.setShininess(10);
-		this.wheelAppearance.loadTexture("/CGRA_Final_Project/images/wheel.png");
+		//this.wheelAppearance.loadTexture("/CGRA_Final_Project/images/wheel.png");
 
-		//this.wheelAppearance.loadTexture("/images/wheel.png");
+		this.wheelAppearance.loadTexture("/images/wheel.png");
 
 
 		//temos de arranjar esta textura
@@ -36,9 +36,9 @@ class MyWheel extends CGFobject{
 		this.tireAppearance.setDiffuse(0.6,0.6,0.6,1);
 		this.tireAppearance.setSpecular(0.8,0.8,0.8,1);	
 		this.tireAppearance.setShininess(10);
-		this.tireAppearance.loadTexture("/CGRA_Final_Project/images/tire.jpg");
+		//this.tireAppearance.loadTexture("/CGRA_Final_Project/images/tire.jpg");
 			
-		//this.tireAppearance.loadTexture("/images/tire.jpg");
+		this.tireAppearance.loadTexture("/images/tire.jpg");
 	};
 	
 	display()

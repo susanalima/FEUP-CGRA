@@ -122,9 +122,10 @@ class MyMovingVehicle extends CGFobject{
 	display()
 	{
 
-		//this.scene.translate(-0.1,0,-0.9);
-		//this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
+		
+		this.scene.rotate(this.movSide*Math.PI/180,0,1,0);
 		//this.scene.translate(0.1,0,0.9);
+		this.scene.translate(-1.4,0,-0.9);
 		
 		if(this.x < -0.0001  || this.x > 0.0001)
 			this.scene.translate(this.x,0,0);

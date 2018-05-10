@@ -42,7 +42,7 @@ class LightingScene extends CGFscene
 
 
 		//terreno
-		this.terrain = new MyTerrain(this,0,0,0,0,100,50,50);
+		this.terrain = new MyTerrain(this,0,1,0,1,50,50,50);
 
 		
 		//roda
@@ -55,8 +55,6 @@ class LightingScene extends CGFscene
 		//vehicle
 		this.vehicle = new MyMovingVehicle(this);
 
-
-		//this.door = new MyFrontRightDoor(this,0,1,0,1);
 
 
 		
@@ -173,39 +171,33 @@ class LightingScene extends CGFscene
 
 		// Draw axis
 	
-		//if (this.axisDisplay)
+		if (this.axisDisplay)
 			this.axis.display();
 	
 
 
 		//terreno
-		//this.terrain.display();
-/*
-		//1 roda
-			this.rotate(90*Math.PI/180,0,1,0);
-		this.translate(0,0,-this.wheel.length/2);
-	
-		this.wheel.display();*/
-	
-
-		//trapezio
-		//this.trapeze.display();
+		this.pushMatrix();
+		this.terrain.display();
+		this.popMatrix();
 
 
 		//veiculo
 		this.pushMatrix();
-		this.translate(2,0,0);
-		//this.vehicle.display();
+		//this.translate(2,0,0);
+		this.vehicle.display();
 		this.popMatrix();
 
 			
-		this.pushMatrix();
+		/*this.pushMatrix();
 		this.fender.display();
-		this.popMatrix();
+		this.popMatrix();*/
 	
 
 
-		//cana de ligar e desligar as luzes
+
+
+		//cena de ligar e desligar as luzes
 
 		if(this.light1 == false)
 			this.lights[0].disable();
