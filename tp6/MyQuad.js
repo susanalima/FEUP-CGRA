@@ -41,7 +41,7 @@ class MyQuad extends CGFobject
              0,0,1,
              0,0,1,
 		];
-/*
+
 		this.texCoords = [
 			this.minS,this.maxT,
 			this.maxS,this.maxT,
@@ -49,7 +49,7 @@ class MyQuad extends CGFobject
 			this.maxS,this.minT
 		];
 
-*/			
+			
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	};

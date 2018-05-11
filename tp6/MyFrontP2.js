@@ -11,9 +11,24 @@ class MyFrontP2 extends CGFobject
 		this.maxT = maxT;
 
 		
+		this.frontP2Appearance = new CGFappearance(this.scene);
+		this.frontP2Appearance.setAmbient(0.6,0.6,0.6,1);
+		this.frontP2Appearance.setDiffuse(0.6,0.6,0.6,1);
+		this.frontP2Appearance.setSpecular(1,1,1,1);	
+		this.frontP2Appearance.setShininess(100);
+		//this.frontP2Appearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		this.frontP2Appearance.loadTexture("/images/ceiling.png");
+
 		this.initBuffers();
 	};
 
+	display()
+	{
+		this.scene.pushMatrix();
+		this.frontP2Appearance.apply();
+		super.display();
+		this.scene.popMatrix();
+	}
 
 
 	initBuffers()
@@ -40,14 +55,14 @@ class MyFrontP2 extends CGFobject
 	
 		];
 
-/*
+
 		this.texCoords = [
 			this.minS,this.maxT,
 			this.maxS,this.maxT,
 			this.minS,this.minT,
 			this.maxS,this.minT
 		];
-*/
+
 			
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();

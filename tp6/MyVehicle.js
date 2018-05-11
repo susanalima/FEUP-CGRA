@@ -60,7 +60,38 @@ class MyVehicle extends CGFobject{
 
 		this.grid = new MyUnitCubeQuad(this.scene);
 
+
+		this.gridAppearance = new CGFappearance(this.scene);
+		this.gridAppearance.setAmbient(0.3,0.3,0.3,1);
+		this.gridAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.gridAppearance.setSpecular(0.8,0.8,0.8,1);	
+		this.gridAppearance.setShininess(100);
+		//this.gridAppearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
+
+		this.gridAppearance.loadTexture("/images/grid.png");
+
+
+		this.backHeadLight1Appearance = new CGFappearance(this.scene);
+		this.backHeadLight1Appearance.setAmbient(0.3,0.3,0.3,1);
+		this.backHeadLight1Appearance.setDiffuse(0.6,0.6,0.6,1);
+		this.backHeadLight1Appearance.setSpecular(0.8,0.8,0.8,1);	
+		this.backHeadLight1Appearance.setShininess(100);
+		//this.backHeadLight1Appearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
+
+		this.backHeadLight1Appearance.loadTexture("/images/backHeadLight1.png");
+		
+
+		this.backHeadLight2Appearance = new CGFappearance(this.scene);
+		this.backHeadLight2Appearance.setAmbient(0.3,0.3,0.3,1);
+		this.backHeadLight2Appearance.setDiffuse(0.6,0.6,0.6,1);
+		this.backHeadLight2Appearance.setSpecular(0.8,0.8,0.8,1);	
+		this.backHeadLight2Appearance.setShininess(100);
+		//this.backHeadLight2Appearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
+
+		this.backHeadLight2Appearance.loadTexture("/images/backHeadLight2.png");
+
 	};
+	
 	
 	display()
 	{
@@ -84,6 +115,7 @@ class MyVehicle extends CGFobject{
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.4,0);
 		this.frontWindow.display();
+
 		this.scene.popMatrix();
 
 		this.scene.pushMatrix();
@@ -225,14 +257,17 @@ class MyVehicle extends CGFobject{
 		this.scene.popMatrix();
 
 		this.scene.pushMatrix();
+		this.gridAppearance.apply();
 		this.scene.translate(-1.05,0.9,0.9);
 		this.scene.scale(0.1,0.4,1.2);
+
 		this.grid.display();
 		this.scene.popMatrix();
 
 		this.scene.pushMatrix();
 		this.scene.translate(3.4,0.92,1.5);
 		this.scene.scale(0.05,0.29,0.35);
+		this.backHeadLight1Appearance.apply();
 		this.backHeadLight.display();
 		this.scene.popMatrix();
 
@@ -240,6 +275,7 @@ class MyVehicle extends CGFobject{
 		this.scene.pushMatrix();
 		this.scene.translate(3.4,0.92,0.3);
 		this.scene.scale(0.05,0.29,0.35);
+		this.backHeadLight2Appearance.apply();
 		this.backHeadLight.display();
 		this.scene.popMatrix();
 

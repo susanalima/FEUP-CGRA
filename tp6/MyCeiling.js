@@ -9,11 +9,26 @@ class MyCeiling extends CGFobject
 		this.maxS = maxS;
 		this.minT = minT;
 		this.maxT = maxT;
-
+		
+		this.ceilingAppearance = new CGFappearance(this.scene);
+		this.ceilingAppearance.setAmbient(0.6,0.6,0.6,1);
+		this.ceilingAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.ceilingAppearance.setSpecular(1,1,1,1);	
+		this.ceilingAppearance.setShininess(100);
+		//this.ceilingAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		this.ceilingAppearance.loadTexture("/images/ceiling.png");
 		
 		this.initBuffers();
 	};
 
+	
+	display()
+	{
+		this.scene.pushMatrix();
+		this.ceilingAppearance.apply();
+		super.display();
+		this.scene.popMatrix();
+	}
 
 
 	initBuffers()
@@ -40,14 +55,14 @@ class MyCeiling extends CGFobject
 			1,1,1,
 		];
 
-/*
+
 		this.texCoords = [
 			this.minS,this.maxT,
 			this.maxS,this.maxT,
 			this.minS,this.minT,
 			this.maxS,this.minT
 		];
-*/
+
 			
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();

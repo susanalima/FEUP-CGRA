@@ -9,11 +9,26 @@ class MyBackP3 extends CGFobject
 		this.maxS = maxS;
 		this.minT = minT;
 		this.maxT = maxT;
-
+		
+		this.backP3Appearance = new CGFappearance(this.scene);
+		this.backP3Appearance.setAmbient(0.6,0.6,0.6,1);
+		this.backP3Appearance.setDiffuse(0.6,0.6,0.6,1);
+		this.backP3Appearance.setSpecular(1,1,1,1);	
+		this.backP3Appearance.setShininess(100);
+		//this.backP3Appearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		this.backP3Appearance.loadTexture("/images/ceiling.png");
 		
 		this.initBuffers();
 	};
 
+
+	display()
+	{
+		this.scene.pushMatrix();
+		this.backP3Appearance.apply();
+		super.display();
+		this.scene.popMatrix();
+	}
 
 
 	initBuffers()
@@ -37,14 +52,14 @@ class MyBackP3 extends CGFobject
 		Math.sqrt(0.5),-Math.sqrt(0.5),-1,
 		];
 
-/*
+
 		this.texCoords = [
 			this.minS,this.maxT,
 			this.maxS,this.maxT,
 			this.minS,this.minT,
 			this.maxS,this.minT
 		];
-*/
+
 			
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
