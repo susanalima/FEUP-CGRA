@@ -31,10 +31,10 @@ class MyBackP3 extends CGFobject
 		];
 		
 		this.normals = [
-		-Math.sqrt(0.5),-Math.sqrt(0.5),1,
-		-Math.sqrt(0.5),-Math.sqrt(0.5),-1,
-		-Math.sqrt(0.5),-Math.sqrt(0.5),1,
-		-Math.sqrt(0.5),-Math.sqrt(0.5),-1,
+		Math.sqrt(0.5),-Math.sqrt(0.5),1,
+		Math.sqrt(0.5),-Math.sqrt(0.5),-1,
+		Math.sqrt(0.5),-Math.sqrt(0.5),1,
+		Math.sqrt(0.5),-Math.sqrt(0.5),-1,
 		];
 
 /*

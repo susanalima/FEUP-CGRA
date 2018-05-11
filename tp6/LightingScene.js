@@ -205,7 +205,7 @@ class LightingScene extends CGFscene
 
 		//terreno
 		this.pushMatrix();
-		this.terrain.display();
+		//this.terrain.display();
 		this.popMatrix();
 
 
