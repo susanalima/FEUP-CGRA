@@ -23,8 +23,6 @@ class MyBackP1 extends CGFobject
 			2.4,0.7,1.8,
 			3.4,0.7,0,
 			3.4,0.7,1.8,
-
-
 			];
 
 		this.indices = [
@@ -36,10 +34,10 @@ class MyBackP1 extends CGFobject
 		
 
 		this.normals = [
-		0,1,0,
-		0,1,0,
-		0,1,0,
-		0,1,0,
+		Math.sqrt(0.5),1,-1,
+		Math.sqrt(0.5),1,1,
+		1,1,-1,
+		1,1,1,
 		
 		];
 

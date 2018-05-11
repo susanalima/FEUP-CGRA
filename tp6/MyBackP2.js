@@ -31,10 +31,10 @@ class MyBackP2 extends CGFobject
 		];
 		
 		this.normals = [
-		1,0,0,
-		1,0,0,
-		1,0,0,
-		1,0,0,
+		1,-1,-1,
+		1,-1,1,
+		1,1,-1,
+		1,1,1,
 		
 		
 		];

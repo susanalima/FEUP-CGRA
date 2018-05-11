@@ -29,20 +29,18 @@ class MyMovingVehicle extends CGFobject{
 
 	update(currTime)
 	{
-			
+		this.x -= this.velocity*this.xdeltaMov*Math.cos(this.angle);
+		this.z += this.velocity*this.xdeltaMov*Math.sin(this.angle);
 
-			this.x -= this.velocity*this.xdeltaMov*Math.cos(this.angle);
-			this.z += this.velocity*this.xdeltaMov*Math.sin(this.angle);
-		
-			if(this.x < -0.0001  || this.x > 0.0001)
-			{
-				this.updateWheels(currTime);
-			}
+		if(this.x < -0.0001  || this.x > 0.0001)
+		{
+			this.updateWheels(currTime);
+		}
 
-			else
-			{
-				this.setWheelsMov(false);
-			}
+		else
+		{
+			this.setWheelsMov(false);
+		}
 	}
 
 

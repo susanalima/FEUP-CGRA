@@ -36,11 +36,10 @@ class MyFrontP1 extends CGFobject
 		
 
 		this.normals = [
-		0,1,0,
-		0,1,0,
-		0,1,0,
-		0,1,0,
-		
+		-Math.sqrt(0.5),1,-1,
+		-Math.sqrt(0.5),1,1,
+		-1,1,-1,
+		-1,1,1,
 		];
 
 /*
