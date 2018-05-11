@@ -10,9 +10,25 @@ class MyBackLeft extends CGFobject
 		this.minT = minT;
 		this.maxT = maxT;
 
+		this.backSideAppearance = new CGFappearance(this.scene);
+		this.backSideAppearance.setAmbient(0.6,0.6,0.6,1);
+		this.backSideAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.backSideAppearance.setSpecular(1,1,1,1);	
+		this.backSideAppearance.setShininess(100);
+		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		this.backSideAppearance.loadTexture("/images/ceiling.png");
 		
 		this.initBuffers();
 	};
+
+
+	display()
+	{
+		this.scene.pushMatrix();
+		this.backSideAppearance.apply();
+		super.display();
+		this.scene.popMatrix();
+	}
 
 
 	initBuffers()
@@ -36,14 +52,14 @@ class MyBackLeft extends CGFobject
 		1,1,1,
 		];
 
-/*
+
 		this.texCoords = [
 			this.minS,this.maxT,
 			this.maxS,this.maxT,
 			this.minS,this.minT,
 			this.maxS,this.minT
 		];
-*/
+
 			
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
