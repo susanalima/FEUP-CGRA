@@ -52,6 +52,14 @@ class MyVehicle extends CGFobject{
 
 		this.backRight = new MyBackRight(this.scene,0,1,0,1);
 
+		this.floor = new MyFloor(this.scene,0,1,0,1);
+
+		this.frontHeadLight = new MyLamp(this.scene, 20,20);
+
+		this.backHeadLight = new MyUnitCubeQuad(this.scene);
+
+		this.grid = new MyUnitCubeQuad(this.scene);
+
 	};
 	
 	display()
@@ -193,6 +201,46 @@ class MyVehicle extends CGFobject{
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.4,0);
 		this.backP3.display();
+		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.translate(0,0.4,0);
+		this.floor.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(-1,0.9,1.65);
+		this.scene.scale(0.1,0.15,0.15);
+		this.scene.rotate(90*Math.PI/180,0,-1,0);
+		this.frontHeadLight.display();
+		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.translate(-1,0.9,0.15);
+		this.scene.scale(0.1,0.15,0.15);
+		this.scene.rotate(90*Math.PI/180,0,-1,0);
+		this.frontHeadLight.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(-1.05,0.9,0.9);
+		this.scene.scale(0.1,0.4,1.2);
+		this.grid.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(3.4,0.92,1.5);
+		this.scene.scale(0.05,0.29,0.35);
+		this.backHeadLight.display();
+		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.translate(3.4,0.92,0.3);
+		this.scene.scale(0.05,0.29,0.35);
+		this.backHeadLight.display();
 		this.scene.popMatrix();
 
 
