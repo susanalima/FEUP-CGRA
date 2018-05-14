@@ -76,7 +76,7 @@ class MyVehicle extends CGFobject{
 		this.backHeadLight1Appearance.setDiffuse(0.6,0.6,0.6,1);
 		this.backHeadLight1Appearance.setSpecular(0.8,0.8,0.8,1);	
 		this.backHeadLight1Appearance.setShininess(100);
-		//this.backHeadLight1Appearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
+		//this.backHeadLight1Appearance.loadTexture("/CGRA_Final_Project/images/backHeadLight1.png");
 
 		this.backHeadLight1Appearance.loadTexture("/images/backHeadLight1.png");
 		
@@ -86,9 +86,20 @@ class MyVehicle extends CGFobject{
 		this.backHeadLight2Appearance.setDiffuse(0.6,0.6,0.6,1);
 		this.backHeadLight2Appearance.setSpecular(0.8,0.8,0.8,1);	
 		this.backHeadLight2Appearance.setShininess(100);
-		//this.backHeadLight2Appearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
+		//this.backHeadLight2Appearance.loadTexture("/CGRA_Final_Project/images/backHeadLight2.png");
 
 		this.backHeadLight2Appearance.loadTexture("/images/backHeadLight2.png");
+
+
+
+		this.frontHeadLightAppearance = new CGFappearance(this.scene);
+		this.frontHeadLightAppearance.setAmbient(0.3,0.3,0.3,1);
+		this.frontHeadLightAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.frontHeadLightAppearance.setSpecular(0.8,0.8,0.8,1);	
+		this.frontHeadLightAppearance.setShininess(100);
+		//this.frontHeadLightAppearance.loadTexture("/CGRA_Final_Project/images/headLight.jpg");
+		
+		//this.frontHeadLightAppearance.loadTexture("/images/headLight.jpg");
 
 	};
 	
@@ -115,7 +126,6 @@ class MyVehicle extends CGFobject{
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.4,0);
 		this.frontWindow.display();
-
 		this.scene.popMatrix();
 
 		this.scene.pushMatrix();
@@ -250,6 +260,7 @@ class MyVehicle extends CGFobject{
 
 
 		this.scene.pushMatrix();
+		//this.frontHeadLightAppearance.apply();
 		this.scene.translate(-1,0.9,0.15);
 		this.scene.scale(0.1,0.15,0.15);
 		this.scene.rotate(90*Math.PI/180,0,-1,0);

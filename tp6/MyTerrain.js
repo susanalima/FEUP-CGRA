@@ -4,7 +4,7 @@ class MyTerrain extends Plane{
 
 	constructor(scene, minS, maxS, minT, maxT, nrDivs, length,width, altimetry) 
 	{
-		super(scene, minS, maxS, minT, maxT,nrDivs);
+		super(scene, minS, maxS, minT, maxT,nrDivs, altimetry);
 		this.scene = scene;
 		this.minS = minS;
 		this.maxS = maxS;
