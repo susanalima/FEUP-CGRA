@@ -28,6 +28,10 @@ class MyLamp extends CGFobject
 		this.normals = [
 		];
 
+		//todo
+		/*this.texCoords= [
+		];*/
+
 
 		var angle = Math.PI*2/(this.slices);
 		var delta = Math.PI*2/((this.stacks));
@@ -116,6 +120,22 @@ class MyLamp extends CGFobject
 			}
 
 		}
+	
+
+		/*var a = Math.PI/this.stacks;
+		var b = Math.PI/this.slices;
+
+		for (var i = 0; i < this.stacks; i++)
+		{
+			for (var j = 0; j < this.slices; j++)
+			{
+				this.texCoords.push(0.5-Math.cos(i*a)*Math.cos(j*b)/2);
+				this.texCoords.push(0.5-Math.cos(i*a)*Math.sin(j*b)/2);
+			}
+		}
+*/
+		
+			
 		console.log(this.indices);
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();

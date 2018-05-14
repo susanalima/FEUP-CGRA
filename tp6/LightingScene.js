@@ -43,19 +43,19 @@ class LightingScene extends CGFscene
 			
 			
 		this.altimetry= [
-						[ 2.0 , 3.0 , 2.0, 4.0, 2.5, 2.4, 2.3, 1.3 ],
-						[ 2.0 , 3.0 , 2.0, 4.0, 7.5, 6.4, 4.3, 1.3 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 2.0, 4.0, 2.5, 2.4, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 2.0, 4.0, 3.5, 2.4, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 2.0 , 3.0 , 2.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
+						[ 2.0 , 3.0 , 2.0, 4.0, 2.5, 2.4, 2.3, 1.3, 0.0 ],
+						[ 2.0 , 3.0 , 2.0, 4.0, 7.5, 6.4, 4.3, 1.3, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 2.0, 4.0, 2.5, 2.4, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 2.0, 4.0, 3.5, 2.4, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 2.0 , 3.0 , 2.0, 1.0, 2.5, 2.4, 2.3, 1.3, 0.0 ]
 						];
 		
 		//terreno
-		this.terrain = new MyTerrain(this,0,1,0,1,9,50,50,this.altimetry);
+		this.terrain = new MyTerrain(this,0,1,0,1,8,50,50,this.altimetry);
 
 		
 		//roda
@@ -75,6 +75,11 @@ class LightingScene extends CGFscene
 		this.vehicle = new MyMovingVehicle(this);
 
 		this.deltaSide = 1;
+
+
+		//crane
+
+		this.crane = new MyCrane(this);
 	
 
 		
@@ -205,7 +210,7 @@ class LightingScene extends CGFscene
 
 		//terreno
 		this.pushMatrix();
-		//this.terrain.display();
+		this.terrain.display();
 		this.popMatrix();
 
 
@@ -213,6 +218,11 @@ class LightingScene extends CGFscene
 		this.pushMatrix();
 		//this.translate(2,0,0);
 		this.vehicle.display();
+		this.popMatrix();
+
+
+		this.pushMatrix();
+		//this.crane.display();
 		this.popMatrix();
 
 			

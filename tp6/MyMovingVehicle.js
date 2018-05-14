@@ -7,10 +7,12 @@ class MyMovingVehicle extends CGFobject{
 		this.isMoving = true;
 		this.xdeltaMov = 20;
 		this.x = -1.4;
+		this.firstX = -10;
 
 		this.ydeltaMov = 20;
 		this.y = 0;
 		this.z = -0.9;
+		this.firstZ = -10;
 
 		this.previousMov = 0;
 		this.angle = Math.PI;
@@ -109,13 +111,14 @@ class MyMovingVehicle extends CGFobject{
 	display()
 	{
 
-	
+		this.scene.translate(this.firstX,0,this.firstZ);
 		this.scene.translate(this.x+1.4,0,this.z+0.9);
 			
 		this.scene.rotate(this.angle,0,1,0);
-		//this.scene.translate(0.1,0,0.9);
+		
 	
 		this.scene.translate(-this.x-1.4,0,-this.z-0.9);
+		
 			
 
 		if(this.x < -0.0001  || this.x > 0.0001)
