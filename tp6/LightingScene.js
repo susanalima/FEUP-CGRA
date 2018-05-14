@@ -75,6 +75,11 @@ class LightingScene extends CGFscene
 		this.vehicle = new MyMovingVehicle(this);
 
 		this.deltaSide = 1;
+
+
+		//crane
+
+		this.crane = new MyCrane(this);
 	
 
 		
@@ -213,6 +218,11 @@ class LightingScene extends CGFscene
 		this.pushMatrix();
 		//this.translate(2,0,0);
 		this.vehicle.display();
+		this.popMatrix();
+
+
+		this.pushMatrix();
+		//this.crane.display();
 		this.popMatrix();
 
 			
