@@ -13,3 +13,4 @@ lib/CGF/shaders/Phong/phong-fragment.glsl
 lib/CGF/shaders/Phong/phong-vertex.glsl
 lib/CGF/shaders/picking/fragment.glsl
 lib/CGF/shaders/picking/vertex.glsl
+mongoose-free-6.9.exe
