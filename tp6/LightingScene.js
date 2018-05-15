@@ -33,14 +33,18 @@ class LightingScene extends CGFscene
 		this.axis = new CGFaxis(this);
 
 		this.light1=true; 
+
 		this.light2=true; 
-		this.speed=3;
+
+		this.speed=0;
 
 		this.axisDisplay = false;
 	
 		this.setUpdatePeriod(20);
-
 			
+		this.maxVelocity = 0.04;
+		
+		this.minVelocity = -0.04;
 			
 		this.altimetry= [
 						[ 2.0 , 3.0 , 2.0, 4.0, 2.5, 2.4, 2.3, 1.3, 0.0 ],
@@ -120,15 +124,22 @@ class LightingScene extends CGFscene
 		if (this.gui.isKeyPressed("KeyW"))
 		{
 			text+=" W ";
-			this.vehicle.velocity  = this.vehicle.velocity + 0.0001;
-			keysPressed=true;
+			if (this.vehicle.velocity < this.maxVelocity)
+			{
+				this.vehicle.velocity  = this.vehicle.velocity + 0.0001;
+				
+			}
 			
+			keysPressed=true;
 		}
 		if (this.gui.isKeyPressed("KeyS"))
 		{
 			text+=" S ";
-			this.vehicle.velocity = this.vehicle.velocity - 0.0001;
-			
+			if (this.vehicle.velocity > this-minVelocity)
+			{
+				this.vehicle.velocity = this.vehicle.velocity - 0.0001;
+			}
+			//this.speed = this.vehicle.velocity*100;
 			keysPressed=true;
 			
 		}
