@@ -36,7 +36,7 @@ class LightingScene extends CGFscene
 
 		this.light2=true; 
 
-		this.speed=0;
+		this.speed= 0.0;
 
 		this.axisDisplay = false;
 	
@@ -139,7 +139,7 @@ class LightingScene extends CGFscene
 			{
 				this.vehicle.velocity = this.vehicle.velocity - 0.0001;
 			}
-			//this.speed = this.vehicle.velocity*100;
+			
 			keysPressed=true;
 			
 		}
@@ -181,7 +181,8 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 		this.checkKeys();
-		this.vehicle.update(currTime);		
+		this.vehicle.update(currTime);	
+		this.speed = this.vehicle.velocity*100.0;	
 
 	}
 
@@ -221,19 +222,19 @@ class LightingScene extends CGFscene
 
 		//terreno
 		this.pushMatrix();
-		this.terrain.display();
+		//this.terrain.display();
 		this.popMatrix();
 
 
 		//veiculo
 		this.pushMatrix();
 		//this.translate(2,0,0);
-		this.vehicle.display();
+		//this.vehicle.display();
 		this.popMatrix();
 
 
 		this.pushMatrix();
-		//this.crane.display();
+	this.crane.display();
 		this.popMatrix();
 
 			
