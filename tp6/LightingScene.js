@@ -184,6 +184,8 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.speed = this.vehicle.velocity*100.0;	
 
+		this.crane.update(currTime);
+
 	}
 
 

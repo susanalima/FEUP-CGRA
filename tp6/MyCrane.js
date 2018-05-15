@@ -4,9 +4,9 @@ class MyCrane extends CGFobject{
 	{
 		super(scene);
 
-		this.base = new MyCylinder(this.scene,20,1, 0.6,0.6);
+		this.base = new MyCylinder(this.scene,20,1, 0.8,0.6);
 
-		this.baseTop = new MyTop (this.scene, 20,0,1,0,1,0.6);
+		this.baseTop = new MyTop (this.scene, 20,0,1,0,1,0.8);
 
 		this.arm1 = new MyCylinder(this.scene,20,1, 0.4,10);
 
@@ -20,19 +20,63 @@ class MyCrane extends CGFobject{
 
 		this.arm2Top = new MyTop(this.scene, 20,0,1,0,1,0.2);
 
-		this.rope = new MyCylinder(this.scene, 20,1,0.1,1.5);
+		this.rope = new MyCylinder(this.scene, 20,1,0.1,2);
 
-		this.magnet = new MyCylinder(this.scene,20,1,1,1);
+		this.magnet = new MyCylinder(this.scene,20,1,1,0.6);
 
 		this.magnetTop = new MyTop(this.scene, 20,0,1,0,1,1);
+
+
+		this.moveArm1 = true;
+
+		this.moveArm2 = false;
+
+		this.baseAngle = 40;
+
+		this.maxBaseAngle = 180;
+
+		this.minBaseAngle = 0;
+
+		this.jointAngle = 25;
+
+		this.maxJointAngle = 25;
+
+		this.minJointAngle = -25;
+
+		this.ropeTranslate = 0;
 	};
+
+	update(currTime)
+	{
+		if (this.moveArm1 == true)
+		{
+			if (this.baseAngle < this.maxBaseAngle)
+			this.baseAngle += 1;	
+			else
+			this.moveArm2 = true;
+		}
+
+		if (this.moveArm2 == true)
+		{
+			if (this.jointAngle > this.minJointAngle)
+			{
+				this.jointAngle -= 1;
+				this.ropeTranslate -= 0.1;
+
+			}
+		}
+			
+	}
 	
 	
 	display()
 	{
+
+		this.scene.rotate(-this.baseAngle*Math.PI/180,0,1,0);
 		//crane base
 		this.scene.pushMatrix();
 		this.scene.rotate(-90*Math.PI/180,1,0,0);
+		this.scene.translate(0.2,0,0);
 		this.base.display();
 		this.scene.translate(0,0,this.base.length);
 		this.baseTop.display();
@@ -41,12 +85,18 @@ class MyCrane extends CGFobject{
 		this.baseTop.display();
 		this.scene.popMatrix();
 
+		this.scene.pushMatrix();
+
+		this.scene.rotate(-25*Math.PI/180,0,0,1);
 		
+
 
 		//crane first arm
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.5,0);
-		this.scene.rotate(-115*Math.PI/180,1,0,0);
+		this.scene.rotate(-90*Math.PI/180,1,0,0);
+		//this.scene.rotate(25*Math.PI/180,0,1,0);
+		//this.scene.rotate(-115*Math.PI/180,1,0,0);
 		//this.scene.scale(0.4,0.4,10);  //12
 		this.arm1.display();
 		this.scene.translate(0,0,this.arm1.length);
@@ -54,25 +104,36 @@ class MyCrane extends CGFobject{
 		this.scene.popMatrix()
 
 
-		//crane joint
+
+
+	
+	//crane joint
 		this.scene.pushMatrix();
-		this.scene.translate(-0.025,9.7,-4.4);
-		this.scene.translate(0.3,0.3,0);
-		this.scene.rotate(-25*Math.PI/180,1,0,0);
+		this.scene.translate(0,11,-0.3);
+
+		//this.scene.translate(-0.025,9.7,-4.4);
+		//this.scene.translate(0.3,0.3,0);
+		//this.scene.rotate(25*Math.PI/180,0,1,0);
+		//this.scene.rotate(-25*Math.PI/180,0,1,0);
 		//this.scene.rotate(45*Math.PI/180,0,1,0);
-		this.scene.rotate(-115*Math.PI/180,0,1,0);
+		//this.scene.rotate(-115*Math.PI/180,0,1,0);
 		this.joint.display();
 		this.scene.translate(0,0,this.joint.length);
 		this.jointTop.display();
 		this.scene.translate(0,0,-this.base.length);
 		this.scene.rotate(180*Math.PI/180,0,1,0);
-		this.baseTop.display();
+		this.jointTop.display();
 		this.scene.popMatrix();
+
+
+
+		
 
 		//crande second arm
 		this.scene.pushMatrix();
-		this.scene.translate(0,10,-4.6);
-		this.scene.rotate(-205*Math.PI/180,0,1,0);
+		this.scene.translate(0,11,0);
+		this.scene.rotate(this.jointAngle*Math.PI/180,0,0,1);
+		this.scene.rotate(90*Math.PI/180,0,1,0);
 		//this.scene.scale(0.4,0.4,10);
 		this.arm2.display();
 		this.scene.translate(0,0,this.arm2.length);
@@ -80,14 +141,35 @@ class MyCrane extends CGFobject{
 		this.scene.popMatrix();
 
 
+		
+
+
 		//crane "rope"
-		/*this.scene.pushMatrix();
-		this.scene.translate(6,10,-10);
+		this.scene.pushMatrix();
+		this.scene.translate(6.2,11.5+this.ropeTranslate,0);
+		this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();
-		this.scene.popMatrix();*/
+		this.scene.popMatrix();
 
 
+		//crane magnet
+			this.scene.pushMatrix();
+		this.scene.translate(6.2,11.5 + this.ropeTranslate,0);
+		this.scene.rotate(25*Math.PI/180,0,0,1);
+		this.scene.rotate(-90*Math.PI/180, 1,0,0);
+		this.magnet.display();
+		this.scene.translate(0,0,this.magnet.length);
+		this.magnetTop.display();
+		this.scene.translate(0,0,-this.magnet.length);
+		this.scene.rotate(180*Math.PI/180,0,1,0);
+		this.magnetTop.display();
+		this.scene.popMatrix();
+
+		
+		this.scene.popMatrix();
+
+	
 
 
 	}
