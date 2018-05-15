@@ -135,7 +135,7 @@ class LightingScene extends CGFscene
 		if (this.gui.isKeyPressed("KeyS"))
 		{
 			text+=" S ";
-			if (this.vehicle.velocity > this-minVelocity)
+			if (this.vehicle.velocity > this.minVelocity)
 			{
 				this.vehicle.velocity = this.vehicle.velocity - 0.0001;
 			}
@@ -231,12 +231,12 @@ class LightingScene extends CGFscene
 		//veiculo
 		this.pushMatrix();
 		//this.translate(2,0,0);
-		//this.vehicle.display();
+		this.vehicle.display();
 		this.popMatrix();
 
 
 		this.pushMatrix();
-	this.crane.display();
+	//this.crane.display();
 		this.popMatrix();
 
 			
