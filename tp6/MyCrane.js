@@ -56,11 +56,16 @@ class MyCrane extends CGFobject{
 		this.down = false;
 
 
-		
+		this.tranportedVehicle = new MyMovingVehicle(this.scene);
 
+
+		
+		this.carTranslate = 0;
 
 	};
 
+
+	//reescrever esta porra
 	update(currTime)
 	{
 	
@@ -87,6 +92,7 @@ class MyCrane extends CGFobject{
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
+	
 			}
 			else
 			{
@@ -95,10 +101,12 @@ class MyCrane extends CGFobject{
 			{
 				this.jointAngle += this.deltaJoint;
 				this.ropeTranslate += this.deltaRopeTranslate;
+				this.carTranslate += this.deltaRopeTranslate;
 
 			}
 			else
 			{
+				this.carTranslate = 5;
 				this.down = false;
 				this.moveArm2 = false;
 				this.moveArm1 = true;
@@ -110,13 +118,15 @@ class MyCrane extends CGFobject{
 			break;
 		case 1:
 		
-		
+
 		if (this.moveArm2 == true )
 		{
 			if (this.jointAngle > this.minJointAngle&& this.down == false)
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
+				this.carTranslate -= this.deltaRopeTranslate;
+
 			}
 			else
 			{
@@ -256,6 +266,14 @@ class MyCrane extends CGFobject{
 		this.scene.popMatrix();
 
 		
+		this.scene.popMatrix();
+
+
+
+		this.scene.pushMatrix();
+		this.scene.rotate(-90*Math.PI/180,0,1,0);
+		this.scene.translate(9,this.carTranslate,0);
+		this.tranportedVehicle.display();
 		this.scene.popMatrix();
 
 	
