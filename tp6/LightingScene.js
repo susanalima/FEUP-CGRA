@@ -231,12 +231,12 @@ class LightingScene extends CGFscene
 		//veiculo
 		this.pushMatrix();
 		//this.translate(2,0,0);
-		this.vehicle.display();
+		//this.vehicle.display();
 		this.popMatrix();
 
 
 		this.pushMatrix();
-	//this.crane.display();
+		this.crane.display();
 		this.popMatrix();
 
 			

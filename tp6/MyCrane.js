@@ -8,7 +8,7 @@ class MyCrane extends CGFobject{
 
 		this.baseTop = new MyTop (this.scene, 20,0,1,0,1,0.8);
 
-		this.arm1 = new MyCylinder(this.scene,20,1, 0.4,10);
+		this.arm1 = new MyCylinder(this.scene,20,1, 0.4,9);
 
 		this.arm1Top = new MyTop(this.scene, 20,0,1,0,1,0.4);
 
@@ -20,7 +20,7 @@ class MyCrane extends CGFobject{
 
 		this.arm2Top = new MyTop(this.scene, 20,0,1,0,1,0.2);
 
-		this.rope = new MyCylinder(this.scene, 20,1,0.1,2);
+		this.rope = new MyCylinder(this.scene, 20,1,0.1,2.5);
 
 		this.magnet = new MyCylinder(this.scene,20,1,1,0.6);
 
@@ -41,17 +41,34 @@ class MyCrane extends CGFobject{
 
 		this.maxJointAngle = 25;
 
-		this.minJointAngle = -25;
+		this.minJointAngle = -30;
 
 		this.ropeTranslate = 0;
+
+		this.state = 0;
+
+		this.deltaBase = 1;
+
+		this.deltaJoint = 1;
+
+		this.deltaRopeTranslate = 0.1;
+
+		
+
+
 	};
 
 	update(currTime)
 	{
+	
+		switch(this.state){
+		case 0:
+		
+	
 		if (this.moveArm1 == true)
 		{
 			if (this.baseAngle < this.maxBaseAngle)
-			this.baseAngle += 1;	
+			this.baseAngle += this.deltaBase;	
 			else
 			this.moveArm2 = true;
 		}
@@ -60,11 +77,55 @@ class MyCrane extends CGFobject{
 		{
 			if (this.jointAngle > this.minJointAngle)
 			{
-				this.jointAngle -= 1;
-				this.ropeTranslate -= 0.1;
+				this.jointAngle -= this.deltaJoint;
+				this.ropeTranslate -= this.deltaRopeTranslate;
 
 			}
+			else
+				{
+				this.moveArm1 = false;
+				this.state = 1;
+				}
 		}
+
+			break;
+		case 1:
+		if (this.moveArm1 == true)
+		{
+			if (this.baseAngle > 0)
+			this.baseAngle -= this.deltaBase;	
+			else
+			this.state = 2;
+		}
+		
+
+		if (this.moveArm2 == true)
+		{
+			if (this.jointAngle <25)
+			{
+				this.jointAngle += this.deltaJoint;
+				this.ropeTranslate += this.deltaRopeTranslate;
+
+			}
+			else
+			{
+
+				this.moveArm2 = false;
+				this.moveArm1 = true;
+			}
+		}
+			
+			break;
+
+			case 2:
+
+			break;
+		
+
+		}
+
+	
+
 			
 	}
 	
@@ -109,7 +170,7 @@ class MyCrane extends CGFobject{
 	
 	//crane joint
 		this.scene.pushMatrix();
-		this.scene.translate(0,11,-0.3);
+		this.scene.translate(0,10,-0.3);
 
 		//this.scene.translate(-0.025,9.7,-4.4);
 		//this.scene.translate(0.3,0.3,0);
@@ -131,7 +192,7 @@ class MyCrane extends CGFobject{
 
 		//crande second arm
 		this.scene.pushMatrix();
-		this.scene.translate(0,11,0);
+		this.scene.translate(0,10,0);
 		this.scene.rotate(this.jointAngle*Math.PI/180,0,0,1);
 		this.scene.rotate(90*Math.PI/180,0,1,0);
 		//this.scene.scale(0.4,0.4,10);
@@ -142,11 +203,9 @@ class MyCrane extends CGFobject{
 
 
 		
-
-
 		//crane "rope"
 		this.scene.pushMatrix();
-		this.scene.translate(6.2,11.5+this.ropeTranslate,0);
+		this.scene.translate(6.2,10.2+this.ropeTranslate,0);
 		this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();
@@ -155,7 +214,7 @@ class MyCrane extends CGFobject{
 
 		//crane magnet
 			this.scene.pushMatrix();
-		this.scene.translate(6.2,11.5 + this.ropeTranslate,0);
+		this.scene.translate(6.2,10.2 + this.ropeTranslate,0);
 		this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.magnet.display();
