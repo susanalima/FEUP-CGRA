@@ -27,9 +27,9 @@ class MyCrane extends CGFobject{
 		this.magnetTop = new MyTop(this.scene, 20,0,1,0,1,1);
 
 
-		this.moveArm1 = true;
+		this.moveArm1 = false;
 
-		this.moveArm2 = false;
+		this.moveArm2 = true;
 
 		this.baseAngle = 40;
 
@@ -53,6 +53,9 @@ class MyCrane extends CGFobject{
 
 		this.deltaRopeTranslate = 0.1;
 
+		this.down = false;
+
+
 		
 
 
@@ -70,26 +73,70 @@ class MyCrane extends CGFobject{
 			if (this.baseAngle < this.maxBaseAngle)
 			this.baseAngle += this.deltaBase;	
 			else
-			this.moveArm2 = true;
+			{
+				this.moveArm2 = true;
+				this.moveArm1 = false;
+				this.state = 1;
+
+			}
 		}
 
-		if (this.moveArm2 == true)
+		if (this.moveArm2 == true )
 		{
-			if (this.jointAngle > this.minJointAngle)
+			if (this.jointAngle > this.minJointAngle&& this.down == false)
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
+			}
+			else
+			{
+				this.down = true;
+			if (this.jointAngle < 25 && this.down == true)
+			{
+				this.jointAngle += this.deltaJoint;
+				this.ropeTranslate += this.deltaRopeTranslate;
 
 			}
 			else
-				{
-				this.moveArm1 = false;
-				this.state = 1;
-				}
+			{
+				this.down = false;
+				this.moveArm2 = false;
+				this.moveArm1 = true;
+			}
+			}
+			
 		}
 
 			break;
 		case 1:
+		
+		
+		if (this.moveArm2 == true )
+		{
+			if (this.jointAngle > this.minJointAngle&& this.down == false)
+			{
+				this.jointAngle -= this.deltaJoint;
+				this.ropeTranslate -= this.deltaRopeTranslate;
+			}
+			else
+			{
+			this.down = true;
+			if (this.jointAngle < 25 && this.down == true)
+			{
+				this.jointAngle += this.deltaJoint;
+				this.ropeTranslate += this.deltaRopeTranslate;
+
+			}
+			else
+			{
+				this.down = false;
+				this.moveArm2 = false;
+				this.moveArm1 = true;
+			}
+			}
+			
+		}
+		
 		if (this.moveArm1 == true)
 		{
 			if (this.baseAngle > 0)
@@ -98,23 +145,6 @@ class MyCrane extends CGFobject{
 			this.state = 2;
 		}
 		
-
-		if (this.moveArm2 == true)
-		{
-			if (this.jointAngle <25)
-			{
-				this.jointAngle += this.deltaJoint;
-				this.ropeTranslate += this.deltaRopeTranslate;
-
-			}
-			else
-			{
-
-				this.moveArm2 = false;
-				this.moveArm1 = true;
-			}
-		}
-			
 			break;
 
 			case 2:
