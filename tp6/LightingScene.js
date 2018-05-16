@@ -150,7 +150,7 @@ class LightingScene extends CGFscene
 			this.vehicle.angle += 0.05;
 			
 		
-			this.deltaSide = 1;
+			//this.deltaSide = 1;
 				
 			keysPressed=true;
 
@@ -164,15 +164,21 @@ class LightingScene extends CGFscene
 			this.vehicle.angle -= 0.05;
 			
 			
-				this.deltaSide = -1;
+			//this.deltaSide = -1;
 			keysPressed=true;
 
 			
 		}
 		if(!this.gui.isKeyPressed("KeyA") && !this.gui.isKeyPressed("KeyD") && this.vehicle.vehicle.frontRightWheel.movSide != 0)
 		{	
+			if (this.vehicle.vehicle.frontRightWheel.movSide > 0)
+				this.deltaSide = 1;
+			else
+				this.deltaSide = -1;
+			
 			this.vehicle.vehicle.frontRightWheel.movSide -= this.deltaSide;
 			this.vehicle.vehicle.frontLeftWheel.movSide -= this.deltaSide;
+			
 		}
 		
 	}
@@ -186,6 +192,19 @@ class LightingScene extends CGFscene
 
 		this.crane.update(currTime);
 
+		/*console.log("x:");	
+		console.log(this.vehicle.x);
+		console.log("z:");	
+		console.log(this.vehicle.z);
+	
+
+		if (this.vehicle.z == -0.9)
+			{
+				this.crane.displayTV = true;
+				this.crane.transportedVehicle = this.vehicle;
+				
+			}*/
+		console.log(this.vehicle.vehicle.frontRightWheel.movSide );
 	}
 
 
@@ -231,12 +250,12 @@ class LightingScene extends CGFscene
 		//veiculo
 		this.pushMatrix();
 		//this.translate(2,0,0);
-		//this.vehicle.display();
+		this.vehicle.display();
 		this.popMatrix();
 
 
 		this.pushMatrix();
-		this.crane.display();
+	//	this.crane.display();
 		this.popMatrix();
 
 			
