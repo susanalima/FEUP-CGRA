@@ -103,7 +103,7 @@ class MyVehicle extends CGFobject{
 		this.frontHeadLightAppearance.setShininess(100);
 		//this.frontHeadLightAppearance.loadTexture("/CGRA_Final_Project/images/headLight.jpg");
 		
-		//this.frontHeadLightAppearance.loadTexture("/images/headLight.jpg");
+		this.frontHeadLightAppearance.loadTexture("/images/headLight.jpg");
 
 	};
 	
@@ -262,6 +262,7 @@ class MyVehicle extends CGFobject{
 		this.scene.popMatrix();
 
 		this.scene.pushMatrix();
+		this.frontHeadLightAppearance.apply();
 		this.scene.translate(-1,0.9,1.65);
 		this.scene.scale(0.1,0.15,0.15);
 		this.scene.rotate(90*Math.PI/180,0,-1,0);
@@ -270,7 +271,7 @@ class MyVehicle extends CGFobject{
 
 
 		this.scene.pushMatrix();
-		//this.frontHeadLightAppearance.apply();
+		this.frontHeadLightAppearance.apply();
 		this.scene.translate(-1,0.9,0.15);
 		this.scene.scale(0.1,0.15,0.15);
 		this.scene.rotate(90*Math.PI/180,0,-1,0);

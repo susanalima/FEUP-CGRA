@@ -16,7 +16,7 @@ class MyBackLeft extends CGFobject
 		this.backSideAppearance.setSpecular(1,1,1,1);	
 		this.backSideAppearance.setShininess(100);
 		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		this.backSideAppearance.loadTexture("/images/ceiling.png");
+		this.backSideAppearance.loadTexture("/images/flecktarn.jpg");
 		
 		this.initBuffers();
 	};
@@ -54,7 +54,7 @@ class MyBackLeft extends CGFobject
 
 
 		this.texCoords = [
-			this.minS,this.maxT,
+			this.maxS,this.minT,
 			this.maxS,this.maxT,
 			this.minS,this.minT,
 			this.maxS,this.minT

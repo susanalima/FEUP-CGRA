@@ -29,12 +29,12 @@ class MyLamp extends CGFobject
 		];
 
 		//todo
-		/*this.texCoords= [
-		];*/
+		this.texCoords= [
+		];
 
 
 		var angle = Math.PI*2/(this.slices);
-		var delta = Math.PI*2/((this.stacks));
+		var delta = Math.PI*2/(this.stacks);
 		var alpha = 0;
 		var radius = 0;
 		var newangle = 0;
@@ -74,7 +74,7 @@ class MyLamp extends CGFobject
 				this.normals.push(x);
 				this.normals.push(y);
 				this.normals.push(0);
-								newangle = newangle + delta/2;
+				newangle = newangle + delta/2;
 
 			}
 
@@ -121,22 +121,29 @@ class MyLamp extends CGFobject
 
 		}
 	
+		newangle = 0;
+		alpha = 0;
+		var newangleTemp = 0;
 
-		/*var a = Math.PI/this.stacks;
-		var b = Math.PI/this.slices;
-
-		for (var i = 0; i < this.stacks; i++)
+		for(var j = 0; j < this.slices; j++)
 		{
-			for (var j = 0; j < this.slices; j++)
+			for(var i = 0; i <= this.stacks;i++)
 			{
-				this.texCoords.push(0.5-Math.cos(i*a)*Math.cos(j*b)/2);
-				this.texCoords.push(0.5-Math.cos(i*a)*Math.sin(j*b)/2);
+				x =  0.5 -0.5*Math.cos(alpha) * Math.cos(newangle);
+				y = 0.5-  0.5*Math.sin(alpha) * Math.cos(newangle);
+
+				this.texCoords.push(x);
+				this.texCoords.push(y);
+
+				newangle = newangle + delta/2.0;
 			}
+			newangleTemp += angle;
+			alpha += angle;
+			newangle = 0;	
 		}
-*/
 		
-			
-		console.log(this.indices);
+	//	console.log(this.vertices);
+	//	console.log(this.texCoords);
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	};

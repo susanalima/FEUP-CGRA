@@ -111,7 +111,7 @@ class MyMovingVehicle extends CGFobject{
 	display()
 	{
 
-		this.scene.translate(this.firstX,0,this.firstZ);
+		//this.scene.translate(this.firstX,0,this.firstZ);
 		this.scene.translate(this.x+1.4,0,this.z+0.9);
 			
 		this.scene.rotate(this.angle,0,1,0);
