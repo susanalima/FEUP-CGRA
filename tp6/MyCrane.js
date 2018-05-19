@@ -58,6 +58,8 @@ class MyCrane extends CGFobject{
 
 		this.tranportedVehicle = new MyMovingVehicle(this.scene);
 
+		this.displayTV = false;
+
 
 		
 		this.carTranslate = 0;
@@ -268,13 +270,19 @@ class MyCrane extends CGFobject{
 		
 		this.scene.popMatrix();
 
-
-
-		this.scene.pushMatrix();
+		if (this.displayTV == true)
+		{
+	
+			this.scene.pushMatrix();
 		this.scene.rotate(-90*Math.PI/180,0,1,0);
 		this.scene.translate(9,this.carTranslate,0);
 		this.tranportedVehicle.display();
 		this.scene.popMatrix();
+
+		}
+		
+	
+		
 
 	
 
