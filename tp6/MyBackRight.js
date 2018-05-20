@@ -18,7 +18,8 @@ class MyBackRight extends CGFobject
 		this.backSideAppearance.setShininess(100);
 		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
 		this.backSideAppearance.loadTexture("/images/ceiling.png");
-		
+		this.backSideAppearance.loadTexture("/images/flecktarn.jpg");
+
 		this.initBuffers();
 	};
 

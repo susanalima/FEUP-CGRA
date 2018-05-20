@@ -18,7 +18,8 @@ class MyFrontLeftDoor extends CGFobject
 		this.frontSideDoorAppearance.setShininess(50);
 		//this.frontSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backWindow.png");
 	
-		this.frontSideDoorAppearance.loadTexture("/images/frontSideDoor.png")
+		//this.frontSideDoorAppearance.loadTexture("/images/frontSideDoor.png")
+		this.frontSideDoorAppearance.loadTexture("/images/camoFrontDoor.png");
 		
 		this.initBuffers();
 	};

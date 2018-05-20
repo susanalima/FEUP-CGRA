@@ -16,7 +16,9 @@ class MyBackP1 extends CGFobject
 		this.backAppearance.setSpecular(1,1,1,1);	
 		this.backAppearance.setShininess(100);
 		//this.backAppearance.loadTexture("/CGRA_Final_Project/images/capot.png");
-		this.backAppearance.loadTexture("/images/capot.png");
+		//this.backAppearance.loadTexture("/images/capot.png");
+		this.backAppearance.loadTexture("/images/flecktarn.jpg");
+
 		
 		this.initBuffers();
 	};

@@ -16,7 +16,9 @@ class MyBackLeftDoor extends CGFobject
 		this.backSideDoorAppearance.setSpecular(1,1,1,1);	
 		this.backSideDoorAppearance.setShininess(100);
 		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backSideDoor.png");
-		this.backSideDoorAppearance.loadTexture("/images/backSideDoor.png");
+		//this.backSideDoorAppearance.loadTexture("/images/backSideDoor.png");
+		this.backSideDoorAppearance.loadTexture("/images/flecktarn.jpg");
+
 		
 		this.initBuffers();
 	};

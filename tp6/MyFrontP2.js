@@ -17,7 +17,8 @@ class MyFrontP2 extends CGFobject
 		this.frontP2Appearance.setSpecular(1,1,1,1);	
 		this.frontP2Appearance.setShininess(100);
 		//this.frontP2Appearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		this.frontP2Appearance.loadTexture("/images/ceiling.png");
+		//this.frontP2Appearance.loadTexture("/images/ceiling.png");
+		this.frontP2Appearance.loadTexture("/images/flecktarn.jpg");
 
 		this.initBuffers();
 	};

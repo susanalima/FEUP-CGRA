@@ -16,7 +16,9 @@ class MyBackP3 extends CGFobject
 		this.backP3Appearance.setSpecular(1,1,1,1);	
 		this.backP3Appearance.setShininess(100);
 		//this.backP3Appearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		this.backP3Appearance.loadTexture("/images/ceiling.png");
+		//this.backP3Appearance.loadTexture("/images/ceiling.png");
+		this.backP3Appearance.loadTexture("/images/flecktarn.jpg");
+
 		
 		this.initBuffers();
 	};

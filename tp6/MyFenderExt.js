@@ -13,10 +13,24 @@ class MyFenderExt extends CGFobject
 		this.slices = slices;
 		this.length = length;
 
-
+		this.fenderAppearance = new CGFappearance(this.scene);
+		this.fenderAppearance.setAmbient(0.6,0.6,0.6,1);
+		this.fenderAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.fenderAppearance.setSpecular(1,1,1,1);	
+		this.fenderAppearance.setShininess(100);
+		//this.fenderAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		//this.fenderAppearance.loadTexture("/images/ceiling.png");
+		this.fenderAppearance.loadTexture("/images/flecktarn.jpg");
 		this.initBuffers();
 	};
-
+	
+	display()
+	{
+		this.scene.pushMatrix();
+		this.fenderAppearance.apply();
+		super.display();
+		this.scene.popMatrix();
+	}
 
 	initBuffers()
 	{
@@ -32,6 +46,8 @@ class MyFenderExt extends CGFobject
 		[
 		];
 		
+		this.texCoords = [];
+
 		this.deltaAngle = Math.PI/6;
 		var angle = 0.0;
 		var x;
@@ -84,6 +100,22 @@ class MyFenderExt extends CGFobject
 				this.indices.push(i+1);
 			}
 		}
+		
+		this.texCoords.push(1);
+		this.texCoords.push(0)
+		angle = 0;
+		for(var i = 0; i < this.slices; i++)
+		{
+			x = 0.5 + 0.5*Math.cos(angle)
+			y =1 - 0.83*Math.sin(angle);
+
+			this.texCoords.push(x);
+			this.texCoords.push(y);
+			
+			angle += this.deltaAngle;
+		}
+		this.texCoords.push(0);
+		this.texCoords.push(0)
 
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();

@@ -16,6 +16,7 @@ class MyBackLeft extends CGFobject
 		this.backSideAppearance.setSpecular(1,1,1,1);	
 		this.backSideAppearance.setShininess(100);
 		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
+		//this.ceilingAppearance.loadTexture("/images/ceiling.png");
 		this.backSideAppearance.loadTexture("/images/flecktarn.jpg");
 		
 		this.initBuffers();
