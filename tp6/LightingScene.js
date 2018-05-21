@@ -38,6 +38,15 @@ class LightingScene extends CGFscene
 
 		this.speed= 0.0;
 
+
+		this.vehicleApr = 'Normal';
+		
+		this.vehicleAprList = [
+		'Normal', 'Camuflage', 'Zebra'
+		];
+
+
+
 		this.axisDisplay = false;
 	
 		this.setUpdatePeriod(20);
@@ -268,7 +277,7 @@ class LightingScene extends CGFscene
 
 		this.pushMatrix();
 
-		this.crane.display();
+		//this.crane.display();
 
 		this.popMatrix();
 

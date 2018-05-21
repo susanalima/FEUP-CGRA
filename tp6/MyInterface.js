@@ -48,6 +48,9 @@ class MyInterface extends CGFinterface {
 
 		this.gui.add(this.scene, 'speed', -4.0, 4.0).listen();
 
+		
+	this.gui.add(this.scene, 'vehicleApr', this.scene.vehicleAprList);
+
 		this.initKeys();
 
 		return true;
