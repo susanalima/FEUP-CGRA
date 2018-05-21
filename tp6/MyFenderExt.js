@@ -21,6 +21,7 @@ class MyFenderExt extends CGFobject
 		//this.fenderAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
 		//this.fenderAppearance.loadTexture("/images/ceiling.png");
 		this.fenderAppearance.loadTexture("/images/flecktarn.jpg");
+
 		this.initBuffers();
 	};
 	

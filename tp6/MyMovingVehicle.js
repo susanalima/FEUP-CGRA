@@ -18,10 +18,7 @@ class MyMovingVehicle extends CGFobject{
 		this.angle = Math.PI;
 		this.velocity = 0;
 
-
 		this.maxTurningAngle = 35;
-
-
 		this.movSide = 0;
 
 	
@@ -31,6 +28,8 @@ class MyMovingVehicle extends CGFobject{
 
 	update(currTime)
 	{
+		if (this.isMoving)
+		{
 		this.x -= this.velocity*this.xdeltaMov*Math.cos(this.angle);
 		this.z += this.velocity*this.xdeltaMov*Math.sin(this.angle);
 
@@ -42,6 +41,7 @@ class MyMovingVehicle extends CGFobject{
 		else
 		{
 			this.setWheelsMov(false);
+		}
 		}
 	}
 
@@ -110,7 +110,9 @@ class MyMovingVehicle extends CGFobject{
 
 	display()
 	{
-
+		if (!this.isMoving)
+			this.angle = Math.PI;
+			
 		//this.scene.translate(this.firstX,0,this.firstZ);
 		this.scene.translate(this.x+1.4,0,this.z+0.9);
 			
@@ -118,6 +120,7 @@ class MyMovingVehicle extends CGFobject{
 		
 	
 		this.scene.translate(-this.x-1.4,0,-this.z-0.9);
+	
 		
 			
 

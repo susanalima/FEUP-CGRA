@@ -17,8 +17,11 @@ class MyCeiling extends CGFobject
 		this.ceilingAppearance.setShininess(100);
 		//this.ceilingAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
 		//this.ceilingAppearance.loadTexture("/images/ceiling.png");
-		this.ceilingAppearance.loadTexture("/images/flecktarn.jpg");
+		
+	
 
+	
+		this.ceilingAppearance.loadTexture("/images/flecktarn.jpg");
 		
 		this.initBuffers();
 	};

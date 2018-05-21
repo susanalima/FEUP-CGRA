@@ -45,6 +45,8 @@ class LightingScene extends CGFscene
 		this.maxVelocity = 0.04;
 		
 		this.minVelocity = -0.04;
+
+		this.displayVehicle = true;
 			
 		this.altimetry= [
 						[ 2.0 , 3.0 , 2.0, 4.0, 2.5, 2.4, 2.3, 1.3, 0.0 ],
@@ -83,7 +85,7 @@ class LightingScene extends CGFscene
 
 		//crane
 
-		this.crane = new MyCrane(this);
+		this.crane = new MyCrane(this, this.vehicle);
 	
 
 		
@@ -183,6 +185,15 @@ class LightingScene extends CGFscene
 		
 	}
 
+	isBetween(min, max, value)
+	{
+		if(value <= max && value >= min)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
 
 	update(currTime)
 	{
@@ -190,20 +201,17 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.speed = this.vehicle.velocity*100.0;	
 
-		//this.crane.update(currTime);
-
-		/*console.log("x:");	
+		this.crane.update(currTime);
 		console.log(this.vehicle.x);
-		console.log("z:");	
 		console.log(this.vehicle.z);
-	
 
-		if (this.vehicle.z == -0.9)
-			{
+		if (this.isBetween(6.1, 6.3, this.vehicle.x) &&  this.vehicle.z == -0.9)
+		{
+				//this.displayVehicle = false;
 				this.crane.displayTV = true;
-				this.crane.transportedVehicle = this.vehicle;
-				
-			}*/
+				//this.crane.isMoving = false;
+		}
+
 		console.log(this.vehicle.vehicle.frontRightWheel.movSide );
 	}
 
@@ -248,17 +256,19 @@ class LightingScene extends CGFscene
 
 
 		//veiculo
+		if (this.vehicle.isMoving)
+		{
 		this.pushMatrix();
 		//this.translate(2,0,0);
 		this.vehicle.display();
 		this.popMatrix();
+		}
+	
 
 
 		this.pushMatrix();
 
-		//this.crane.display();
-
-		//this.crane.display();
+		this.crane.display();
 
 		this.popMatrix();
 
