@@ -35,41 +35,19 @@ class MyCrane extends CGFobject{
 		this.displayTV = false;
 
 		this.isMoving = false;
-		
-		this.carTranslate = 0;
+
+
+		this.craneAppearence = new CGFappearance(this.scene);
+		this.craneAppearence.setAmbient(0.6,0.6,0.6,1);
+		this.craneAppearence.setDiffuse(0.6,0.6,0.6,1);
+		this.craneAppearence.setSpecular(1,1,1,1);	
+		this.craneAppearence.setShininess(120);
+		this.craneAppearence.loadTexture("/images/crane.jpg");
+
 
 	};
 
-	setValues()
-		{
-			this.moveArm1 = false;
-
-			this.moveArm2 = true;
-
-			this.baseAngle = 0;
-
-			this.maxBaseAngle = 180;
-
-			this.minBaseAngle = 0;
-
-			this.jointAngle = 25;
-
-			this.maxJointAngle = 25;
-
-			this.minJointAngle = -30;
-
-			this.ropeTranslate = 0;
-
-			this.state = 2;
-
-			this.deltaBase = 1;
-
-			this.deltaJoint = 1;
-
-			this.deltaRopeTranslate = 0.1;
-
-			this.down = false;
-		}
+	
 
 
 	//reescrever esta porra
@@ -86,7 +64,9 @@ class MyCrane extends CGFobject{
 		if (this.moveArm1 == true)
 		{
 			if (this.baseAngle < this.maxBaseAngle)
-			this.baseAngle += this.deltaBase;	
+			{
+				this.baseAngle += this.deltaBase;	
+			}
 			else
 			{
 				this.moveArm2 = true;
@@ -140,8 +120,10 @@ class MyCrane extends CGFobject{
 			else
 			{	
 				this.tranportedVehicle.isMoving = true;
-				this.tranportedVehicle.x = -6.2;
+				this.tranportedVehicle.velocity = 0;
+				this.tranportedVehicle.x = -6.0;
 				this.displayTV = false;
+				this.tranportedVehicle.angle = 0;
 				this.down = true;
 				if (this.jointAngle < 25 && this.down == true)
 				{
@@ -170,14 +152,50 @@ class MyCrane extends CGFobject{
 
 			case 2:
 			this.setValues();
+			this.isMoving = false;
 			break;
 		
 
 		}
 
 	
+	}
 
-			
+	setValues()
+	{
+	
+
+		this.carTranslate = 0;
+
+		this.moveArm1 = false;
+
+		this.moveArm2 = true;
+
+		this.baseAngle = 0;
+
+		this.maxBaseAngle = 180;
+
+		this.minBaseAngle = 0;
+
+		this.jointAngle = 25;
+
+		this.maxJointAngle = 25;
+
+		this.minJointAngle = -30;
+
+		this.ropeTranslate = 0;
+
+		this.state = 2;
+
+		this.deltaBase = 1;
+
+		this.deltaJoint = 1;
+
+		this.deltaRopeTranslate = 0.1;
+
+		this.down = false;
+
+		this.carRotate = 0;
 	}
 	
 	
@@ -187,6 +205,7 @@ class MyCrane extends CGFobject{
 		this.scene.rotate(-this.baseAngle*Math.PI/180,0,1,0);
 		//crane base
 		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.rotate(-90*Math.PI/180,1,0,0);
 		this.scene.translate(0.2,0,0);
 		this.base.display();
@@ -205,6 +224,7 @@ class MyCrane extends CGFobject{
 
 		//crane first arm
 		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.translate(0,0.5,0);
 		this.scene.rotate(-90*Math.PI/180,1,0,0);
 		this.arm1.display();
@@ -218,6 +238,7 @@ class MyCrane extends CGFobject{
 	
 	//crane joint
 		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.translate(0,10,-0.3);
 		this.joint.display();
 		this.scene.translate(0,0,this.joint.length);
@@ -231,8 +252,9 @@ class MyCrane extends CGFobject{
 
 		
 
-		//crande second arm
+		//crane second arm
 		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.translate(0,10,0);
 		this.scene.rotate(this.jointAngle*Math.PI/180,0,0,1);
 		this.scene.rotate(90*Math.PI/180,0,1,0);
@@ -245,6 +267,7 @@ class MyCrane extends CGFobject{
 		
 		//crane "rope"
 		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.translate(6.2,10.2+this.ropeTranslate,0);
 		this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
@@ -253,7 +276,8 @@ class MyCrane extends CGFobject{
 
 
 		//crane magnet
-			this.scene.pushMatrix();
+		this.scene.pushMatrix();
+		this.craneAppearence.apply();
 		this.scene.translate(6.2,10.2 + this.ropeTranslate,0);
 		this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
@@ -268,22 +292,16 @@ class MyCrane extends CGFobject{
 		
 		this.scene.popMatrix();
 
+
 		if (this.displayTV == true && !this.tranportedVehicle.isMoving)
 		{
-	
-		this.scene.pushMatrix();
-		//this.scene.rotate(-90*Math.PI/180,0,1,0);
-		this.scene.translate(0,this.carTranslate,0);
-		this.tranportedVehicle.display();
-		this.scene.popMatrix();
-
+			this.scene.pushMatrix();
+			//this.scene.rotate(this.carRotate*Math.PI/180,0,1,0);
+			this.scene.translate(0,this.carTranslate,0);
+			this.tranportedVehicle.display();
+			this.scene.popMatrix();
 		}
-		
 	
-		
-
-	
-
 
 	}
 

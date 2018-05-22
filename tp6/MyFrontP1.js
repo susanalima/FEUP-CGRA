@@ -10,27 +10,9 @@ class MyFrontP1 extends CGFobject
 		this.minT = minT;
 		this.maxT = maxT;
 
-		this.frontAppearance = new CGFappearance(this.scene);
-		this.frontAppearance.setAmbient(0.6,0.6,0.6,1);
-		this.frontAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.frontAppearance.setSpecular(1,1,1,1);	
-		this.frontAppearance.setShininess(100);
-		//this.frontAppearance.loadTexture("/CGRA_Final_Project/images/capot.png");
-		//this.frontAppearance.loadTexture("/images/capot.png");
-		
-
-		this.frontAppearance.loadTexture("/images/flecktarn.jpg");
 
 		this.initBuffers();
 	};
-
-	display()
-	{
-		this.scene.pushMatrix();
-		this.frontAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
 
 	initBuffers()
 	{

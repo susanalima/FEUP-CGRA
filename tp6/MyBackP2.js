@@ -11,25 +11,11 @@ class MyBackP2 extends CGFobject
 		this.maxT = maxT;
 
 
-		this.backP2Appearance = new CGFappearance(this.scene);
-		this.backP2Appearance.setAmbient(0.6,0.6,0.6,1);
-		this.backP2Appearance.setDiffuse(0.6,0.6,0.6,1);
-		this.backP2Appearance.setSpecular(1,1,1,1);	
-		this.backP2Appearance.setShininess(100);
-		//this.backP2Appearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		//this.backP2Appearance.loadTexture("/images/ceiling.png");
-		this.backP2Appearance.loadTexture("/images/flecktarn.jpg");
-		
+	
 		this.initBuffers();
 	};
 
-	display()
-	{
-		this.scene.pushMatrix();
-		this.backP2Appearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
+	
 
 	initBuffers()
 	{

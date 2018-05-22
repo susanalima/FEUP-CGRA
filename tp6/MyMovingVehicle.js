@@ -113,16 +113,11 @@ class MyMovingVehicle extends CGFobject{
 		if (!this.isMoving)
 			this.angle = Math.PI;
 			
-		//this.scene.translate(this.firstX,0,this.firstZ);
-		this.scene.translate(this.x+1.4,0,this.z+0.9);
-			
-		this.scene.rotate(this.angle,0,1,0);
 		
-	
+		this.scene.translate(this.x+1.4,0,this.z+0.9);	
+		this.scene.rotate(this.angle,0,1,0);
 		this.scene.translate(-this.x-1.4,0,-this.z-0.9);
 	
-		
-			
 
 		if(this.x < -0.0001  || this.x > 0.0001)
 			this.scene.translate(this.x,0,this.z);

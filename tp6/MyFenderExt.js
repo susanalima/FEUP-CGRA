@@ -13,25 +13,11 @@ class MyFenderExt extends CGFobject
 		this.slices = slices;
 		this.length = length;
 
-		this.fenderAppearance = new CGFappearance(this.scene);
-		this.fenderAppearance.setAmbient(0.6,0.6,0.6,1);
-		this.fenderAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.fenderAppearance.setSpecular(1,1,1,1);	
-		this.fenderAppearance.setShininess(100);
-		//this.fenderAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		//this.fenderAppearance.loadTexture("/images/ceiling.png");
-		this.fenderAppearance.loadTexture("/images/flecktarn.jpg");
 
 		this.initBuffers();
 	};
 	
-	display()
-	{
-		this.scene.pushMatrix();
-		this.fenderAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
+
 
 	initBuffers()
 	{

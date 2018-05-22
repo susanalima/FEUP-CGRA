@@ -25,8 +25,10 @@ class MyTerrain extends Plane{
 		
 
 		//this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
-	
+		
+
 		this.sandAppearence.loadTexture("/images/sand.jpg");
+
 	};
 
 	display()
