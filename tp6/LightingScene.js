@@ -190,7 +190,7 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.speed = this.vehicle.velocity*100.0;	
 
-		//this.crane.update(currTime);
+		this.crane.update(currTime);
 
 		/*console.log("x:");	
 		console.log(this.vehicle.x);
@@ -256,7 +256,7 @@ class LightingScene extends CGFscene
 
 		this.pushMatrix();
 
-		//this.crane.display();
+		this.crane.display();
 
 		//this.crane.display();
 
