@@ -36,7 +36,7 @@ class LightingScene extends CGFscene
 
 		this.light2=true; 
 
-		this.speed= 0.0;
+		this.speed= 3.0;
 
 
 		this.vehicleApr = 'Normal';
@@ -208,11 +208,11 @@ class LightingScene extends CGFscene
 	{
 		this.checkKeys();
 		this.vehicle.update(currTime);	
-		this.speed = this.vehicle.velocity*100.0;	
-
+		this.maxVelocity = this.speed/100.0;	
 		this.crane.update(currTime);
-		console.log(this.vehicle.x);
-		console.log(this.vehicle.z);
+		//console.log(this.vehicle.x);
+		//console.log(this.vehicle.z);
+
 
 		if (this.isBetween(6.1, 6.3, this.vehicle.x) &&  this.vehicle.z == -0.9)
 		{
@@ -221,7 +221,6 @@ class LightingScene extends CGFscene
 				//this.crane.isMoving = false;
 		}
 
-		console.log(this.vehicle.vehicle.frontRightWheel.movSide );
 	}
 
 
