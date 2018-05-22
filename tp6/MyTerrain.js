@@ -16,8 +16,7 @@ class MyTerrain extends Plane{
 		this.altimetry = altimetry;
 
 
-		//temos de arranjar este chao que isto esta uma desgraca
-		//ja nao esta assim tao mau xd
+		
 		this.sandAppearence = new CGFappearance(this.scene);
 		this.sandAppearence.setAmbient(0.3,0.5,0.4,1);
 		this.sandAppearence.setDiffuse(1,1,0.6,1);

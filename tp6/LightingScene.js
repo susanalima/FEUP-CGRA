@@ -213,7 +213,9 @@ class LightingScene extends CGFscene
 		//console.log(this.vehicle.x);
 		//console.log(this.vehicle.z);
 
+
 		this.crane.update(currTime);
+
 
 		if (this.isBetween(6.1, 6.3, this.vehicle.x) &&  this.vehicle.z == -0.9)
 		{
@@ -260,7 +262,7 @@ class LightingScene extends CGFscene
 
 		//terreno
 		this.pushMatrix();
-		//this.terrain.display();
+		this.terrain.display();
 		this.popMatrix();
 
 
@@ -277,7 +279,7 @@ class LightingScene extends CGFscene
 
 		this.pushMatrix();
 
-		this.crane.display();
+		//this.crane.display();
 
 		this.popMatrix();
 
