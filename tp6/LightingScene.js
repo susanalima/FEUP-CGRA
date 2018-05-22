@@ -210,11 +210,11 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.maxVelocity = this.speed/100.0;	
 		this.crane.update(currTime);
-		//console.log(this.vehicle.x);
-		//console.log(this.vehicle.z);
+		console.log(this.vehicle.x);
+		console.log(this.vehicle.z);
 
 
-		if (this.isBetween(6.1, 6.3, this.vehicle.x) &&  this.vehicle.z == -0.9)
+		if (this.isBetween(5.9, 6.5, this.vehicle.x) && this.isBetween(-1.2, -0.6, this.vehicle.z))
 		{
 				//this.displayVehicle = false;
 				this.crane.displayTV = true;
@@ -276,7 +276,7 @@ class LightingScene extends CGFscene
 
 		this.pushMatrix();
 
-		//this.crane.display();
+		this.crane.display();
 
 		this.popMatrix();
 

@@ -409,6 +409,4 @@ class MyVehicle extends CGFobject{
 	}
 
 
-
-
 };
