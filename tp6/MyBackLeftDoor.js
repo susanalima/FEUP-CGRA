@@ -10,26 +10,10 @@ class MyBackLeftDoor extends CGFobject
 		this.minT = minT;
 		this.maxT = maxT;
 
-		this.backSideDoorAppearance = new CGFappearance(this.scene);
-		this.backSideDoorAppearance.setAmbient(0.6,0.6,0.6,1);
-		this.backSideDoorAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.backSideDoorAppearance.setSpecular(1,1,1,1);	
-		this.backSideDoorAppearance.setShininess(100);
-		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backSideDoor.png");
-		//this.backSideDoorAppearance.loadTexture("/images/backSideDoor.png");
-		this.backSideDoorAppearance.loadTexture("/images/flecktarn.jpg");
-
-		
+	
 		this.initBuffers();
 	};
 
-	display()
-	{
-		this.scene.pushMatrix();
-		this.backSideDoorAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
 
 	initBuffers()
 	{
@@ -46,11 +30,7 @@ class MyBackLeftDoor extends CGFobject
 
 		];
 		
-		/*0,-1,1,
-		0,-1,1,
-		-Math.sqrt(0.5),1,1,
-		-Math.sqrt(0.5),1,1,
-		0,1,1,*/
+	
 
 		this.normals = [
 		0,0,1,

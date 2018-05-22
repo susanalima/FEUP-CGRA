@@ -10,29 +10,11 @@ class MyBackP1 extends CGFobject
 		this.minT = minT;
 		this.maxT = maxT;
 		
-		this.backAppearance = new CGFappearance(this.scene);
-		this.backAppearance.setAmbient(0.6,0.6,0.6,1);
-		this.backAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.backAppearance.setSpecular(1,1,1,1);	
-		this.backAppearance.setShininess(100);
-		//this.backAppearance.loadTexture("/CGRA_Final_Project/images/capot.png");
-		//this.backAppearance.loadTexture("/images/capot.png");
-		
-		this.backAppearance.loadTexture("/images/flecktarn.jpg");
 
 		
 		this.initBuffers();
 	};
 	
-	display()
-	{
-		this.scene.pushMatrix();
-		this.backAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
-
-
 	initBuffers()
 	{
 		this.vertices = [

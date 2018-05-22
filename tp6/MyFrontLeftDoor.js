@@ -8,29 +8,10 @@ class MyFrontLeftDoor extends CGFobject
 		this.minS = minS;
 		this.maxS = maxS;
 		this.minT = minT;
-		this.maxT = maxT;
-
-		//arranjar isto para ficar melhorzinho
-		this.frontSideDoorAppearance = new CGFappearance(this.scene);
-		this.frontSideDoorAppearance.setAmbient(0.5,0.5,0.5,1);
-		this.frontSideDoorAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.frontSideDoorAppearance.setSpecular(1,1,1,1);	
-		this.frontSideDoorAppearance.setShininess(50);
-		//this.frontSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backWindow.png");
-	
-		//this.frontSideDoorAppearance.loadTexture("/images/frontSideDoor.png")
-		this.frontSideDoorAppearance.loadTexture("/images/camoFrontDoor.png");
-		
+		this.maxT = maxT;	
 		this.initBuffers();
 	};
 
-	display()
-	{
-		this.scene.pushMatrix();
-		this.frontSideDoorAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}
 
 	initBuffers()
 	{
