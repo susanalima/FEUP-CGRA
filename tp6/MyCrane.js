@@ -115,6 +115,7 @@ class MyCrane extends CGFobject{
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
+				//this.ropeTranslate = Math.sin(90-this.jointAngle);
 				this.carTranslate -= this.deltaRopeTranslate;
 			}
 			else
@@ -201,7 +202,7 @@ class MyCrane extends CGFobject{
 	
 	display()
 	{
-
+		
 		this.scene.rotate(-this.baseAngle*Math.PI/180,0,1,0);
 		//crane base
 		this.scene.pushMatrix();
@@ -263,13 +264,14 @@ class MyCrane extends CGFobject{
 		this.arm2Top.display();
 		this.scene.popMatrix();
 
-
+		this.scene.popMatrix();
 		
 		//crane "rope"
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
-		this.scene.translate(6.2,10.2+this.ropeTranslate,0);
-		this.scene.rotate(25*Math.PI/180,0,0,1);
+		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
+		console.log(this.jointAngle);
+		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();
 		this.scene.popMatrix();
@@ -278,8 +280,8 @@ class MyCrane extends CGFobject{
 		//crane magnet
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
-		this.scene.translate(6.2,10.2 + this.ropeTranslate,0);
-		this.scene.rotate(25*Math.PI/180,0,0,1);
+		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
+		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.magnet.display();
 		this.scene.translate(0,0,this.magnet.length);
@@ -290,7 +292,7 @@ class MyCrane extends CGFobject{
 		this.scene.popMatrix();
 
 		
-		this.scene.popMatrix();
+	
 
 
 		if (this.displayTV == true && !this.tranportedVehicle.isMoving)
