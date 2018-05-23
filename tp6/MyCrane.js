@@ -37,6 +37,8 @@ class MyCrane extends CGFobject{
 		this.isMoving = false;
 
 
+		this.TVx = 0;
+
 		this.craneAppearence = new CGFappearance(this.scene);
 		this.craneAppearence.setAmbient(0.6,0.6,0.6,1);
 		this.craneAppearence.setDiffuse(0.6,0.6,0.6,1);
@@ -55,7 +57,10 @@ class MyCrane extends CGFobject{
 	{
 
 		if (this.displayTV && !this.isMoving)
-				this.state = 0;
+		{
+			this.state = 0;
+			this.TVx = this.tranportedVehicle.x;
+		}
 		console.log("State:", this.state);
 		switch(this.state){
 		case 0:
@@ -87,20 +92,19 @@ class MyCrane extends CGFobject{
 			else
 			{
 				this.down = true;
-			if (this.jointAngle < 25 && this.down == true)
-			{
-				this.jointAngle += this.deltaJoint;
-				this.ropeTranslate += this.deltaRopeTranslate;
-				this.carTranslate += this.deltaRopeTranslate;
-
-			}
-			else
-			{
-				this.carTranslate = 5;
-				this.down = false;
-				this.moveArm2 = false;
-				this.moveArm1 = true;
-			}
+				if (this.jointAngle < 25 && this.down == true)
+				{
+					this.jointAngle += this.deltaJoint;
+					this.ropeTranslate += this.deltaRopeTranslate;
+					this.carTranslate = true;
+				}
+				else
+				{
+					//this.carTranslate = 5;
+					this.down = false;
+					this.moveArm2 = false;
+					this.moveArm1 = true;
+				}
 			}
 			
 		}
@@ -115,16 +119,15 @@ class MyCrane extends CGFobject{
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
-				//this.ropeTranslate = Math.sin(90-this.jointAngle);
-				this.carTranslate -= this.deltaRopeTranslate;
+				//this.carTranslate -= this.deltaRopeTranslate;
 			}
 			else
 			{	
 				this.tranportedVehicle.isMoving = true;
 				this.tranportedVehicle.velocity = 0;
-				this.tranportedVehicle.x = -6.0;
-				this.displayTV = false;
+				this.tranportedVehicle.x = -this.TVx;
 				this.tranportedVehicle.angle = 0;
+				this.displayTV = false;
 				this.down = true;
 				if (this.jointAngle < 25 && this.down == true)
 				{
@@ -166,7 +169,7 @@ class MyCrane extends CGFobject{
 	{
 	
 
-		this.carTranslate = 0;
+		this.carTranslate = false;
 
 		this.moveArm1 = false;
 
@@ -299,7 +302,9 @@ class MyCrane extends CGFobject{
 		{
 			this.scene.pushMatrix();
 			//this.scene.rotate(this.carRotate*Math.PI/180,0,1,0);
-			this.scene.translate(0,this.carTranslate,0);
+			//this.scene.translate(0,this.carTranslate,0);
+			if (this.carTranslate)
+				this.scene.translate(2-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),4.9-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
 			this.tranportedVehicle.display();
 			this.scene.popMatrix();
 		}
