@@ -21,6 +21,8 @@ class MyMovingVehicle extends CGFobject{
 		this.maxTurningAngle = 35;
 		this.movSide = 0;
 
+		this.movingAngle = this.angle;
+
 	
 	};
 	
@@ -110,12 +112,13 @@ class MyMovingVehicle extends CGFobject{
 
 	display()
 	{
-		if (!this.isMoving)
-			this.angle = Math.PI;
+	
+		if (this.isMoving)
+			this.movingAngle = this.angle;
 			
 		
 		this.scene.translate(this.x+1.4,0,this.z+0.9);	
-		this.scene.rotate(this.angle,0,1,0);
+		this.scene.rotate(this.movingAngle,0,1,0);
 		this.scene.translate(-this.x-1.4,0,-this.z-0.9);
 	
 
