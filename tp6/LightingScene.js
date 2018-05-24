@@ -214,14 +214,12 @@ class LightingScene extends CGFscene
 		console.log(this.vehicle.z);
 
 
-<<<<<<< HEAD
+
 		this.crane.update(currTime);
 
 
-		if (this.isBetween(6.1, 6.3, this.vehicle.x) &&  this.vehicle.z == -0.9)
-=======
+	
 		if (this.isBetween(5.9, 6.5, this.vehicle.x) && this.isBetween(-1.2, -0.6, this.vehicle.z))
->>>>>>> 18108cb549b3e9a65594f659c1030e32485dd2e7
 		{
 				//this.displayVehicle = false;
 				this.crane.displayTV = true;
