@@ -4,6 +4,11 @@ class MyCrane extends CGFobject{
 	{
 		super(scene);
 
+		//vai ser necessário modificar o constructor para ter coordenadas.
+		this.x = 0; 
+
+		this.z = 0;
+
 		this.base = new MyCylinder(this.scene,20,1, 0.8,0.6);
 
 		this.baseTop = new MyTop (this.scene, 20,0,1,0,1,0.8);
@@ -127,7 +132,7 @@ class MyCrane extends CGFobject{
 				{
 					this.tranportedVehicle.isMoving = true;
 					this.tranportedVehicle.velocity = 0;
-					this.tranportedVehicle.x = -this.TVx;
+					this.tranportedVehicle.x = -this.TVx- 2.5;
 					this.displayTV = false;
 					this.down = true;
 					this.tranportedVehicle.angle = Math.PI+ this.tranportedVehicle.movingAngle;
