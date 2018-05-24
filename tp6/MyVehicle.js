@@ -64,6 +64,10 @@ class MyVehicle extends CGFobject{
 
 		this.grid = new MyUnitCubeQuad(this.scene);
 
+		this.mirror = new MyLamp(this.scene, 20,20);
+
+		this.mirrorTop = new MyTop(this.scene, 20,0,1,0,1,1);
+
 /****************************************************/
 
 		this.gridAppearance = new CGFappearance(this.scene);
@@ -156,6 +160,18 @@ class MyVehicle extends CGFobject{
 		this.backSideDoorAppearance.setShininess(100);
 		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backSideDoor.png");
 		this.backSideDoorAppearance.loadTexture("/images/backSideDoor.png");
+
+
+/****************************************************/
+
+
+		this.mirrorAppearance = new CGFappearance(this.scene);
+		this.mirrorAppearance.setAmbient(0.6,0.6,0.6,1);
+		this.mirrorAppearance.setDiffuse(0.6,0.6,0.6,1);
+		this.mirrorAppearance.setSpecular(1,1,1,1);	
+		this.mirrorAppearance.setShininess(100);
+		//this.backSideDoorAppearance.loadTexture("/CGRA_Final_Project/images/backSideDoor.png");
+		this.mirrorAppearance.loadTexture("/images/mirror.jpg");
 
 
 /****************************************************/
@@ -404,6 +420,57 @@ class MyVehicle extends CGFobject{
 		this.scene.scale(0.05,0.29,0.35);
 		this.backHeadLight2Appearance.apply();
 		this.backHeadLight.display();
+		this.scene.popMatrix();
+
+/****************************************************/
+		
+		this.scene.pushMatrix();
+		this.scene.pushMatrix();
+		if(this.scene.vehicleApr == 'Camuflage')
+			this.CamoAppearence.apply();	
+		else
+		{
+			if(this.scene.vehicleApr == 'Zebra')
+				this.ZebraAppearence.apply();
+			else
+				this.NormalAppearence.apply();
+		}
+
+		this.scene.pushMatrix();
+		this.scene.translate(0.2,1.1,-0.1);
+		this.scene.rotate(-90*Math.PI/180, 0,1,0);
+		this.scene.scale(0.15,0.1,0.1);
+		this.mirror.display();
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0.2,1.1,1.9);
+		this.scene.rotate(-90*Math.PI/180, 0,1,0);
+		this.scene.scale(0.15,0.1,0.1);
+		this.mirror.display();
+		this.scene.popMatrix();
+
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		
+		this.mirrorAppearance.apply();
+
+		this.scene.pushMatrix();
+		this.scene.translate(0.2,1.1,-0.1);
+		this.scene.rotate(90*Math.PI/180, 0,1,0);
+		this.scene.scale(0.15,0.1,0.1);
+		this.mirrorTop.display();
+		this.scene.popMatrix();
+
+
+		this.scene.pushMatrix();
+		this.scene.translate(0.2,1.1,1.9);
+		this.scene.rotate(90*Math.PI/180, 0,1,0);
+		this.scene.scale(0.15,0.1,0.1);
+		this.mirrorTop.display();
+		this.scene.popMatrix();
+
 		this.scene.popMatrix();
 
 	}
