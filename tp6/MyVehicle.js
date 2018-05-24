@@ -424,7 +424,7 @@ class MyVehicle extends CGFobject{
 
 /****************************************************/
 		
-		this.scene.pushMatrix();
+	
 		this.scene.pushMatrix();
 		if(this.scene.vehicleApr == 'Camuflage')
 			this.CamoAppearence.apply();	
