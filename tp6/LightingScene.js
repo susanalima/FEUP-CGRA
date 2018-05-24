@@ -94,7 +94,7 @@ class LightingScene extends CGFscene
 
 		//crane
 
-		this.crane = new MyCrane(this, this.vehicle);
+		this.crane = new MyCrane(this, this.vehicle,10,5);
 	
 
 		
@@ -219,7 +219,7 @@ class LightingScene extends CGFscene
 
 
 	
-		if (this.isBetween(5.9, 6.5, this.vehicle.x) && this.isBetween(-1.2, -0.6, this.vehicle.z))
+		if (this.isBetween(5.9, 6.5, this.vehicle.x- this.crane.x) && this.isBetween(-1.2, -0.6, this.vehicle.z - this.crane.z))
 		{
 				//this.displayVehicle = false;
 				this.crane.displayTV = true;
@@ -280,7 +280,7 @@ class LightingScene extends CGFscene
 
 
 		this.pushMatrix();
-
+		this.translate(this.crane.x,0, this.crane.z);
 		this.crane.display();
 
 		this.popMatrix();

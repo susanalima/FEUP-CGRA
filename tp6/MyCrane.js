@@ -1,13 +1,13 @@
 class MyCrane extends CGFobject{
 
-	constructor(scene, vehicle) 
+	constructor(scene, vehicle, x, z) 
 	{
 		super(scene);
 
 		//vai ser necessário modificar o constructor para ter coordenadas.
-		this.x = 0; 
+		this.x = x; 
 
-		this.z = 0;
+		this.z = z;
 
 		this.base = new MyCylinder(this.scene,20,1, 0.8,0.6);
 
@@ -64,7 +64,10 @@ class MyCrane extends CGFobject{
 		if (this.displayTV && !this.isMoving)
 		{
 			this.state = 0;
-			this.TVx = this.tranportedVehicle.x;
+			this.TVx = this.tranportedVehicle.x - this.x;
+			this.tranportedVehicle.x -= this.x;
+			this.tranportedVehicle.z -= this.z;
+
 		}
 		console.log("State:", this.state);
 		switch(this.state){
@@ -132,7 +135,8 @@ class MyCrane extends CGFobject{
 				{
 					this.tranportedVehicle.isMoving = true;
 					this.tranportedVehicle.velocity = 0;
-					this.tranportedVehicle.x = -this.TVx- 2.5;
+					this.tranportedVehicle.x = this.x-this.TVx- 2.5;
+					this.tranportedVehicle.z = this.z;
 					this.displayTV = false;
 					this.down = true;
 					this.tranportedVehicle.angle = Math.PI+ this.tranportedVehicle.movingAngle;
@@ -302,6 +306,7 @@ class MyCrane extends CGFobject{
 		this.magnetTop.display();
 		this.scene.popMatrix();
 
+
 		
 	
 
@@ -312,12 +317,11 @@ class MyCrane extends CGFobject{
 			//this.scene.rotate(this.carRotate*Math.PI/180,0,1,0);
 			//this.scene.translate(0,this.carTranslate,0);
 			if (this.carTranslate)
-				this.scene.translate(2.2-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),4.9-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
+				this.scene.translate(2.2-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)) ,4.9-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
 			this.tranportedVehicle.display();
 			this.scene.popMatrix();
 		}
-	
-
+		
 	}
 
 
