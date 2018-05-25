@@ -10,26 +10,8 @@ class MyCeiling extends CGFobject
 		this.minT = minT;
 		this.maxT = maxT;
 		
-		/*this.ceilingAppearance = new CGFappearance(this.scene);
-		this.ceilingAppearance.setAmbient(0.6,0.6,0.6,1);
-		this.ceilingAppearance.setDiffuse(0.6,0.6,0.6,1);
-		this.ceilingAppearance.setSpecular(1,1,1,1);	
-		this.ceilingAppearance.setShininess(100);
-		//this.ceilingAppearance.loadTexture("/CGRA_Final_Project/images/ceiling.png");
-		//this.ceilingAppearance.loadTexture("/images/ceiling.png");
-		this.ceilingAppearance.loadTexture("/images/flecktarn.jpg");
-		*/
 		this.initBuffers();
 	};
-
-	
-	/*display()
-	{
-		this.scene.pushMatrix();
-		this.ceilingAppearance.apply();
-		super.display();
-		this.scene.popMatrix();
-	}*/
 
 
 	initBuffers()

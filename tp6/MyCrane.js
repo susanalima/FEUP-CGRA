@@ -4,7 +4,6 @@ class MyCrane extends CGFobject{
 	{
 		super(scene);
 
-		//vai ser necessário modificar o constructor para ter coordenadas.
 		this.x = x; 
 
 		this.z = z;
@@ -31,8 +30,9 @@ class MyCrane extends CGFobject{
 
 		this.magnetTop = new MyTop(this.scene, 20,0,1,0,1,1);
 
-		
-		
+		this.mark = new MyTop(this.scene, 20,0,1,0,1,0.6);
+
+/****************************************************/		
 		this.setValues();
 
 		this.tranportedVehicle = vehicle;
@@ -41,9 +41,9 @@ class MyCrane extends CGFobject{
 
 		this.isMoving = false;
 
-
 		this.TVx = 0;
 
+/****************************************************/
 		this.craneAppearence = new CGFappearance(this.scene);
 		this.craneAppearence.setAmbient(0.6,0.6,0.6,1);
 		this.craneAppearence.setDiffuse(0.6,0.6,0.6,1);
@@ -52,6 +52,13 @@ class MyCrane extends CGFobject{
 		this.craneAppearence.loadTexture("/images/crane.jpg");
 
 
+
+		this.targetAppearence = new CGFappearance(this.scene);
+		this.targetAppearence.setAmbient(0.6,0.6,0.6,1);
+		this.targetAppearence.setDiffuse(0.6,0.6,0.6,1);
+		this.targetAppearence.setSpecular(1,1,1,1);	
+		this.targetAppearence.setShininess(120);
+		this.targetAppearence.loadTexture("/images/target.png");
 	};
 
 	
@@ -200,7 +207,7 @@ class MyCrane extends CGFobject{
 	
 	display()
 	{
-		
+		this.scene.pushMatrix();
 		this.scene.rotate(-this.baseAngle*Math.PI/180,0,1,0);
 		//crane base
 		this.scene.pushMatrix();
@@ -267,7 +274,6 @@ class MyCrane extends CGFobject{
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
 		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
-		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();
 		this.scene.popMatrix();
@@ -277,7 +283,6 @@ class MyCrane extends CGFobject{
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
 		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
-		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.magnet.display();
 		this.scene.translate(0,0,this.magnet.length);
@@ -288,20 +293,23 @@ class MyCrane extends CGFobject{
 		this.scene.popMatrix();
 
 
-		
-	
-
-
 		if (this.displayTV == true && !this.tranportedVehicle.isMoving)
 		{
 			this.scene.pushMatrix();
-			//this.scene.rotate(this.carRotate*Math.PI/180,0,1,0);
-			//this.scene.translate(0,this.carTranslate,0);
 			if (this.carTranslate)
 				this.scene.translate(2.2-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)) ,4.9-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
 			this.tranportedVehicle.display();
 			this.scene.popMatrix();
 		}
+
+		this.scene.popMatrix();
+
+		this.scene.pushMatrix();
+		this.scene.translate(7.55,0.1,0);
+		this.scene.rotate(-90*Math.PI/180,1,0,0);
+		this.targetAppearence.apply();
+		this.mark.display();
+		this.scene.popMatrix();
 		
 	}
 

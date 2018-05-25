@@ -15,7 +15,6 @@ class MyBackWindow extends CGFobject
 		this.backWindowAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.backWindowAppearance.setSpecular(0.1,0.1,0.1,1);	
 		this.backWindowAppearance.setShininess(4);
-		//this.backWindowAppearance.loadTexture("/CGRA_Final_Project/images/backWindow.png");
 
 		this.backWindowAppearance.loadTexture("/images/backWindow.png");
 		this.initBuffers();

@@ -40,13 +40,6 @@ class MyFrontRightDoor extends CGFobject
 		0,0,-1,
 		];
 
-		/*this.texCoords = [
-			this.maxS-0.05,this.maxT,
-			this.minS,this.maxT-0.02,
-			this.maxS-0.05,0.4,
-			this.maxS-0.4,this.minT+0.02,
-			this.minS,this.minT+0.02,
-		];*/
 
 		this.texCoords = [
 			this.maxS-0.05,this.maxT-0.01,
