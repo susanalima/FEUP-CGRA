@@ -163,13 +163,13 @@ class MyCrane extends CGFobject{
 
 		}
 		
-			break;
+		break;
 
-			case 2:
+		case 2:
 
-			this.setValues();
-			this.isMoving = false;
-			break;
+		this.setValues();
+		this.isMoving = false;
+		break;
 		
 
 		}
@@ -249,7 +249,6 @@ class MyCrane extends CGFobject{
 
 
 
-		
 
 		//crane second arm
 		this.scene.pushMatrix();
@@ -268,7 +267,6 @@ class MyCrane extends CGFobject{
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
 		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
-		console.log(this.jointAngle);
 		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();

@@ -209,15 +209,6 @@ class MyVehicle extends CGFobject{
 /****************************************************/
 
 		this.scene.pushMatrix();
-		/*	if(this.scene.currVehicleAppearance == 'Camuflage')
-			this.frontSideDoorCamoAppearance.apply();	
-		else
-		{
-			if(this.scene.currVehicleAppearance == 'Zebra')
-				this.frontSideDoorZebraAppearance.apply();
-			else
-				this.frontSideDoorNaturalAppearance.apply();
-		}*/
 		this.vehicleAppearanceList[(Number(this.appearanceKey)+3).toString()].apply();
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.4,0);
@@ -234,16 +225,6 @@ class MyVehicle extends CGFobject{
 
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.4,0);
-	/*	if(this.scene.currVehicleAppearance == 'Camuflage')
-			this.CamoAppearence.apply();	
-		else
-		{
-			if(this.scene.currVehicleAppearance == 'Zebra')
-				this.ZebraAppearence.apply();
-			else
-				this.backSideDoorAppearance.apply();
-
-		}*/
 		this.vehicleAppearanceList[(Number(this.appearanceKey)+6).toString()].apply();
 		this.backLeftDoor.display();
 		this.backRightDoor.display();
@@ -280,16 +261,6 @@ class MyVehicle extends CGFobject{
 /****************************************************/
 
 		this.scene.pushMatrix();
-		/*if(this.scene.currVehicleAppearance == 'Camuflage')
-			this.CamoAppearence.apply();	
-		else
-		{
-			if(this.scene.currVehicleAppearance == 'Zebra')
-				this.ZebraAppearence.apply();
-			else
-				this.NormalAppearence.apply();
-		}*/
-
 		this.vehicleAppearanceList[this.appearanceKey].apply();
 
 		this.scene.pushMatrix();

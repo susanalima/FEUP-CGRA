@@ -210,11 +210,6 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.maxVelocity = this.speed/100.0;	
 		this.crane.update(currTime);
-		console.log("Vehicle X:", this.vehicle.x);
-		console.log("Vehicle Z:", this.vehicle.z);
-
-
-
 		this.crane.update(currTime);
 
 
