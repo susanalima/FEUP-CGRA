@@ -39,9 +39,9 @@ class LightingScene extends CGFscene
 		this.speed= 3.0;
 
 
-		this.vehicleApr = 'Normal';
+		this.currVehicleAppearance = 'Normal';
 		
-		this.vehicleAprList = [
+		this.vehicleAppearances = [
 		'Normal', 'Camuflage', 'Zebra'
 		];
 

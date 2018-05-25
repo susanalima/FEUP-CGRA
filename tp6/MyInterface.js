@@ -49,7 +49,7 @@ class MyInterface extends CGFinterface {
 		this.gui.add(this.scene, 'speed', -4.0, 4.0);
 
 		
-	this.gui.add(this.scene, 'vehicleApr', this.scene.vehicleAprList);
+	this.gui.add(this.scene, 'currVehicleAppearance', this.scene.vehicleAppearances);
 
 		this.initKeys();
 
