@@ -23,10 +23,6 @@ class MyTerrain extends Plane{
 		this.sandAppearence.setSpecular(0.2,0.2,0.2,1);	
 		this.sandAppearence.setShininess(4);
 		
-
-		//this.sandAppearence.loadTexture("/CGRA_Final_Project/images/sand.jpg");
-		
-
 		this.sandAppearence.loadTexture("/images/sand.jpg");
 
 	};

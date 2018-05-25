@@ -69,7 +69,6 @@ class MyCrane extends CGFobject{
 			this.tranportedVehicle.z -= this.z;
 
 		}
-		console.log("State:", this.state);
 		switch(this.state){
 		case 0:
 		this.tranportedVehicle.isMoving = false;
@@ -108,7 +107,6 @@ class MyCrane extends CGFobject{
 				}
 				else
 				{
-					//this.carTranslate = 5;
 					this.down = false;
 					this.moveArm2 = false;
 					this.moveArm1 = true;
@@ -127,7 +125,6 @@ class MyCrane extends CGFobject{
 			{
 				this.jointAngle -= this.deltaJoint;
 				this.ropeTranslate -= this.deltaRopeTranslate;
-				//this.carTranslate -= this.deltaRopeTranslate;
 			}
 			else
 			{	
@@ -155,21 +152,24 @@ class MyCrane extends CGFobject{
 			}
 			
 		}
-		
+
+
 		if (this.moveArm1 == true)
 		{
 			if (this.baseAngle > 0)
 			this.baseAngle -= this.deltaBase;	
 			else
 			this.state = 2;
+
 		}
 		
-			break;
+		break;
 
-			case 2:
-			this.setValues();
-			this.isMoving = false;
-			break;
+		case 2:
+
+		this.setValues();
+		this.isMoving = false;
+		break;
 		
 
 		}
@@ -179,38 +179,21 @@ class MyCrane extends CGFobject{
 
 	setValues()
 	{
-	
-
 		this.carTranslate = false;
-
 		this.moveArm1 = false;
-
 		this.moveArm2 = true;
-
 		this.baseAngle = 0;
-
 		this.maxBaseAngle = 180;
-
 		this.minBaseAngle = 0;
-
 		this.jointAngle = 25;
-
 		this.maxJointAngle = 25;
-
 		this.minJointAngle = -30;
-
 		this.ropeTranslate = 0;
-
 		this.state = 2;
-
 		this.deltaBase = 1;
-
 		this.deltaJoint = 1;
-
 		this.deltaRopeTranslate = 0.1;
-
 		this.down = false;
-
 		this.carRotate = 0;
 	}
 	
@@ -266,7 +249,6 @@ class MyCrane extends CGFobject{
 
 
 
-		
 
 		//crane second arm
 		this.scene.pushMatrix();
@@ -285,7 +267,6 @@ class MyCrane extends CGFobject{
 		this.scene.pushMatrix();
 		this.craneAppearence.apply();
 		this.scene.translate(10-this.arm2.length+this.arm2.length*(Math.cos((25-this.jointAngle)*Math.PI/180)),6.5-this.arm2.length*(Math.sin((25-this.jointAngle)*Math.PI/180)),0);
-		console.log(this.jointAngle);
 		//this.scene.rotate(25*Math.PI/180,0,0,1);
 		this.scene.rotate(-90*Math.PI/180, 1,0,0);
 		this.rope.display();

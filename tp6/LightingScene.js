@@ -39,9 +39,9 @@ class LightingScene extends CGFscene
 		this.speed= 3.0;
 
 
-		this.vehicleApr = 'Normal';
+		this.currVehicleAppearance = 'Normal';
 		
-		this.vehicleAprList = [
+		this.vehicleAppearances = [
 		'Normal', 'Camuflage', 'Zebra'
 		];
 
@@ -210,11 +210,6 @@ class LightingScene extends CGFscene
 		this.vehicle.update(currTime);	
 		this.maxVelocity = this.speed/100.0;	
 		this.crane.update(currTime);
-		console.log("Vehicle X:", this.vehicle.x);
-		console.log("Vehicle Z:", this.vehicle.z);
-
-
-
 		this.crane.update(currTime);
 
 
@@ -267,6 +262,16 @@ class LightingScene extends CGFscene
 		//this.terrain.display();
 		this.popMatrix();
 
+
+		if(this.currVehicleAppearance == 'Camuflage')
+			this.vehicle.vehicle.appearanceKey = "0";	
+		else
+		{
+			if(this.currVehicleAppearance == 'Zebra')
+				this.vehicle.vehicle.appearanceKey = "1";
+			else
+				this.vehicle.vehicle.appearanceKey = "2";
+		}
 
 		//veiculo
 		if (this.vehicle.isMoving)
