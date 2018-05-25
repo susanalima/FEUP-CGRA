@@ -268,6 +268,16 @@ class LightingScene extends CGFscene
 		this.popMatrix();
 
 
+		if(this.currVehicleAppearance == 'Camuflage')
+			this.vehicle.vehicle.appearanceKey = "0";	
+		else
+		{
+			if(this.currVehicleAppearance == 'Zebra')
+				this.vehicle.vehicle.appearanceKey = "1";
+			else
+				this.vehicle.vehicle.appearanceKey = "2";
+		}
+
 		//veiculo
 		if (this.vehicle.isMoving)
 		{
