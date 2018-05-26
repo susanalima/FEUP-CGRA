@@ -139,7 +139,7 @@ class MyCrane extends CGFobject{
 				{
 					this.tranportedVehicle.isMoving = true;
 					this.tranportedVehicle.velocity = 0;
-					this.tranportedVehicle.x = this.x-this.TVx- 2.5;
+					this.tranportedVehicle.x = this.x-this.TVx-2.1;
 					this.tranportedVehicle.z = this.z;
 					this.displayTV = false;
 					this.down = true;
