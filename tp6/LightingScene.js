@@ -36,6 +36,10 @@ class LightingScene extends CGFscene
 
 		this.light2=true; 
 
+		this.light3=true; 
+
+		this.light4=true; 
+
 		this.speed= 3.0;
 
 
@@ -88,13 +92,14 @@ class LightingScene extends CGFscene
 
 		//vehicle
 		this.vehicle = new MyMovingVehicle(this);
+		this.vehicle.x = 14;
 
 		this.deltaSide = 1;
 
 
 		//crane
 
-		this.crane = new MyCrane(this, this.vehicle,10,5);
+		this.crane = new MyCrane(this, this.vehicle,12,15);
 	
 
 		
@@ -109,18 +114,37 @@ class LightingScene extends CGFscene
 	{
 		this.setGlobalAmbientLight(0,0,0, 1.0);
 		
+<<<<<<< HEAD
 		this.lights[0].setPosition(11, 10, 11, 1);
+=======
+		this.lights[0].setPosition(14, 20, 1, 1);
+>>>>>>> cf96d3d5ebd0abeeeaa010eeecfcb5d32fc6b549
         this.lights[0].setDiffuse(1.0,1.0,1.0,1.0);
                 this.lights[1].setSpecular(1.0,1.0,1.0,1.0);
        	this.lights[0].enable();  
-        this.lights[0].setVisible(true);
+        this.lights[0].setVisible(false);
       
 		
+<<<<<<< HEAD
 		this.lights[1].setPosition(-8, 6, -5, 1);
+=======
+		this.lights[1].setPosition(-14, 20, 1, 1);
+>>>>>>> cf96d3d5ebd0abeeeaa010eeecfcb5d32fc6b549
         this.lights[1].setDiffuse(1.0,1.0,1.0,1.0);
         this.lights[1].setSpecular(1.0,1.0,1.0,1.0);
         this.lights[1].enable();
-        this.lights[1].setVisible(true);
+        this.lights[1].setVisible(false);
+
+        this.lights[2].setPosition(0, 20, 10,1);
+        this.lights[2].setDiffuse(1.0,1.0,1.0,1.0);
+        this.lights[2].enable();
+        this.lights[2].setVisible(false);
+
+
+        this.lights[3].setPosition(0, 20, -10,1);
+        this.lights[3].setDiffuse(1.0,1.0,1.0,1.0);
+        this.lights[3].enable();
+        this.lights[3].setVisible(false);
        
 	};
 
@@ -160,11 +184,9 @@ class LightingScene extends CGFscene
 		{
 			text+=" A ";
 			this.vehicle.turnFrontWheelsToTheLeft();
-			this.vehicle.angle += 0.05;
-			
-		
-			//this.deltaSide = 1;
-				
+			//this.vehicle.angle += 0.05;
+			this.vehicle.angle += 0.05*this.vehicle.velocity*100;
+	
 			keysPressed=true;
 
 			
@@ -173,11 +195,9 @@ class LightingScene extends CGFscene
 		{
 			text+=" D ";
 			this.vehicle.turnFrontWheelsToTheRight();
-			
-			this.vehicle.angle -= 0.05;
-			
-			
-			//this.deltaSide = -1;
+			//this.vehicle.angle -= 0.05;
+			this.vehicle.angle -= 0.05*this.vehicle.velocity*100;
+	
 			keysPressed=true;
 
 			
@@ -218,9 +238,7 @@ class LightingScene extends CGFscene
 	
 		if (this.isBetween(5.5, 6.8, this.vehicle.x- this.crane.x) && this.isBetween(-1.4, -0.4, this.vehicle.z - this.crane.z))
 		{
-				//this.displayVehicle = false;
 				this.crane.displayTV = true;
-				//this.crane.isMoving = false;
 		}
 
 	}
@@ -283,18 +301,14 @@ class LightingScene extends CGFscene
 		//veiculo
 		if (this.vehicle.isMoving)
 		{
-		this.pushMatrix();
-		//this.translate(2,0,0);
-		this.vehicle.display();
-		this.popMatrix();
+			this.pushMatrix();
+			this.vehicle.display();
+			this.popMatrix();
 		}
 	
-
-
 		this.pushMatrix();
 		this.translate(this.crane.x,0, this.crane.z);
 		this.crane.display();
-
 		this.popMatrix();
 
 			
@@ -309,12 +323,20 @@ class LightingScene extends CGFscene
 		else
 			this.lights[0].enable();
 
-
-
 		if(this.light2 == false)
 			this.lights[1].disable();
 		else
 			this.lights[1].enable();
+
+		if(this.light3 == false)
+			this.lights[2].disable();
+		else
+			this.lights[2].enable();
+
+		if(this.light4 == false)
+			this.lights[3].disable();
+		else
+			this.lights[3].enable();
 
 
 	};

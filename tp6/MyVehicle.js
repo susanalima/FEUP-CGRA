@@ -67,7 +67,7 @@ class MyVehicle extends CGFobject{
 		this.mirror = new MyLamp(this.scene, 20,20);
 
 		this.mirrorTop = new MyTop(this.scene, 20,0,1,0,1,1);
-
+		
 
 		this.vehicleAppearanceList = {};
 
@@ -114,7 +114,6 @@ class MyVehicle extends CGFobject{
 		this.vehicleAppearanceList["0"] = this.CamoAppearence; 
 		this.vehicleAppearanceList["6"] = this.CamoAppearence;
 		 
-
 		this.ZebraAppearence = new CGFappearance(this.scene);
 		this.ZebraAppearence.setAmbient(0.6,0.6,0.6,1);
 		this.ZebraAppearence.setDiffuse(0.6,0.6,0.6,1);

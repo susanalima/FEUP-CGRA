@@ -15,8 +15,6 @@ class MyFrontWindow extends CGFobject
 		this.frontWindowAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.frontWindowAppearance.setSpecular(0.1,0.1,0.1,1);	
 		this.frontWindowAppearance.setShininess(4);
-		//this.frontWindowAppearance.loadTexture("/CGRA_Final_Project/images/frontWindow.png");
-
 		this.frontWindowAppearance.loadTexture("/images/frontWindow.png");
 
 		this.initBuffers();

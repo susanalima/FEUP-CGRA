@@ -142,8 +142,6 @@ class MyLamp extends CGFobject
 			newangle = 0;	
 		}
 		
-	//	console.log(this.vertices);
-	//	console.log(this.texCoords);
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	};

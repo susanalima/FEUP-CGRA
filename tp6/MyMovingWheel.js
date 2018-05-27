@@ -15,9 +15,7 @@ class MyMovingWheel extends CGFobject{
 		
 		
 		this.maxTurningAngle = 35;
-
-		this.previousVelocity = 0;
-
+		
 		this.perimeter = Math.PI*rad*2.0;
 		this.velocity = 0;
 	};
@@ -40,7 +38,6 @@ class MyMovingWheel extends CGFobject{
 
 	setVelocity(newVelocity)
 	{
-		this.previousVelocity = this.velocity;
 		this.velocity = newVelocity;
 	}
 

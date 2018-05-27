@@ -64,16 +64,7 @@ class MyFloor extends CGFobject
 			0,-1,0,	
 			0,-1,0,
 		];
-
-/*
-		this.texCoords = [
-			this.minS,this.maxT,
-			this.maxS,this.maxT,
-			this.minS,this.minT,
-			this.maxS,this.minT
-		];
-*/
-			
+		
 		this.primitiveType=this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	};
