@@ -109,14 +109,16 @@ class LightingScene extends CGFscene
 	{
 		this.setGlobalAmbientLight(0,0,0, 1.0);
 		
-		this.lights[0].setPosition(2, 3, 1, 1);
+		this.lights[0].setPosition(11, 10, 11, 1);
         this.lights[0].setDiffuse(1.0,1.0,1.0,1.0);
+                this.lights[1].setSpecular(1.0,1.0,1.0,1.0);
        	this.lights[0].enable();  
         this.lights[0].setVisible(true);
       
 		
-		this.lights[1].setPosition(-3, 3, 1, 1);
+		this.lights[1].setPosition(-8, 6, -5, 1);
         this.lights[1].setDiffuse(1.0,1.0,1.0,1.0);
+        this.lights[1].setSpecular(1.0,1.0,1.0,1.0);
         this.lights[1].enable();
         this.lights[1].setVisible(true);
        
@@ -253,13 +255,18 @@ class LightingScene extends CGFscene
 		// Draw axis
 	
 		if (this.axisDisplay)
+		{
+			this.pushMatrix();
+			this.scale(5,5,5);
 			this.axis.display();
+			this.popMatrix();
+		}
 	
 
 
 		//terreno
 		this.pushMatrix();
-		//this.terrain.display();
+		this.terrain.display();
 		this.popMatrix();
 
 

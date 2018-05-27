@@ -21,6 +21,96 @@ class Plane extends CGFobject{
 		this.initBuffers();
 	};
 
+	getNormals(altimetry, posX, posY)
+	{
+		var vecs = [1, altimetry[posX][posY] - altimetry[posX][posY - 1], 1, altimetry[posX][posY] - altimetry[posX-1][posY], -1, altimetry[posX][posY] - altimetry[posX][posY+1], -1, altimetry[posX][posY]-altimetry[posX+1][posY] ];
+		
+		var normals1 = [-vecs[1], vecs[0]];
+		var normals2 = [-vecs[3], vecs[2]];
+
+		var normals3 = [vecs[5], -vecs[4]];
+		var normals4 = [vecs[7], -vecs[6]];
+
+		this.normals.push((normals2[0] - normals4[0]), (normals1[1] + normals2[1] + normals3[1] + normals4[1])/4, (normals1[0] + normals3[0]));
+	};
+
+
+	getNormalsGeneral(altimetry, posX, posY)
+	{
+		if(posX > 0 && posX < this.nrDivs && posY > 0 && posY < this.nrDivs)
+		{
+			this.getNormals(altimetry, posX, posY);
+		}
+		else if(posX == 0)
+		{
+			if(posY == 0)
+			{
+				var vecs = [-1, altimetry[posX][posY] - altimetry[posX][posY+1], -1, altimetry[posX][posY] - altimetry[posX+1][posY]];
+				var normals1 = [vecs[1], -vecs[0]];
+				var normals2 = [vecs[3], -vecs[2]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1]), normals1[0]);
+			}
+			else if( posY == this.nrDivs)
+			{
+				var vecs = [1, altimetry[posX][posY] - altimetry[posX][posY-1], -1, altimetry[posX][posY] - altimetry[posX+1][posY]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [vecs[3], -vecs[2]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1]), normals1[0]);
+			}
+			else
+			{
+				var vecs = [1, altimetry[posX][posY] - altimetry[posX][posY-1], -1, altimetry[posX][posY] - altimetry[posX+1][posY], -1, altimetry[posX][posY] - altimetry[posX][posY+1]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [vecs[3], -vecs[2]];
+				var normals3 = [vecs[5], -vecs[4]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1] + normals3[1]), normals1[0] + normals3[0]);
+			}
+		}
+		else if(posX == this.nrDivs)
+		{
+			if(posY == 0)
+			{
+				var vecs = [-1, altimetry[posX][posY] - altimetry[posX][posY+1], 1, altimetry[posX][posY] - altimetry[posX-1][posY]];
+				var normals1 = [vecs[1], -vecs[0]];
+				var normals2 = [-vecs[3], vecs[2]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1]), normals1[0]);
+			}
+			else if(posY == this.nrDivs)
+			{
+				var vecs = [1, altimetry[posX][posY] - altimetry[posX][posY-1], 1, altimetry[posX][posY] - altimetry[posX-1][posY]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [-vecs[3], vecs[2]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1]), normals1[0]);
+			}
+			else
+			{
+				var vecs = [1, altimetry[posX][posY] - altimetry[posX][posY-1], 1, altimetry[posX][posY] - altimetry[posX-1][posY], -1, altimetry[posX][posY] - altimetry[posX][posY+1]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [-vecs[3], vecs[2]];
+				var normals3 = [vecs[5], -vecs[4]];
+				this.normals.push(normals2[0], Math.abs(normals1[1] + normals2[1] + normals3[1]), normals1[0] + normals3[0]);
+			}
+		}
+		else if(posY == 0)
+		{
+			var vecs = [1, altimetry[posX][posY] - altimetry[posX-1][posY], -1, altimetry[posX][posY] - altimetry[posX][posY+1], -1, altimetry[posX][posY] - altimetry[posX+1][posY]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [vecs[3], -vecs[2]];
+				var normals3 = [vecs[5], -vecs[4]];
+				this.normals.push(normals1[0] + normals3[0], Math.abs(normals1[1] + normals2[1] + normals3[1]), normals2[0]);
+		}
+		else if(posY == this.nrDivs)
+		{
+			var vecs = [1, altimetry[posX][posY] - altimetry[posX-1][posY], 1, altimetry[posX][posY] - altimetry[posX][posY-1], 1, altimetry[posX][posY] - altimetry[posX+1][posY]];
+				var normals1 = [-vecs[1], vecs[0]];
+				var normals2 = [-vecs[3], vecs[2]];
+				var normals3 = [vecs[5], -vecs[4]];
+				this.normals.push(normals1[0] + normals3[0], Math.abs(normals1[1] + normals2[1] + normals3[1]), normals2[0]);
+		}
+
+	};
+
+	
 	initBuffers()
 	{
 		/* example for nrDivs = 3 :
@@ -60,6 +150,8 @@ class Plane extends CGFobject{
 			for (var i = 0; i <= this.nrDivs; i++) 
 			{
 				this.vertices.push(xCoord, yCoord, this.altimetry[j][i]);
+				this.getNormalsGeneral(this.altimetry, j,i);
+				//this.normals.push(0,0,1);
 				
 				// As this plane is being drawn on the xy plane, the normal to the plane will be along the positive z axis.
 				// So all the vertices will have the same normal, (0, 0, 1).
@@ -67,7 +159,7 @@ class Plane extends CGFobject{
 				this.texCoords.push(t);
 				s+=deltaS;
 
-				this.normals.push(0,0,1);
+				
 
 				// texCoords should be computed here; uncomment and fill the blanks
 				// this.texCoords.push(..., ...);
@@ -78,6 +170,7 @@ class Plane extends CGFobject{
 			t+=deltaT;
 			yCoord -= this.patchLength;
 		}
+		console.log("Normals: ", this.normals);
 		
 		// Generating indices
 		/* for nrDivs = 3 output will be 

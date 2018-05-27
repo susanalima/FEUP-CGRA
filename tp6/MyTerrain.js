@@ -19,8 +19,8 @@ class MyTerrain extends Plane{
 		
 		this.sandAppearence = new CGFappearance(this.scene);
 		this.sandAppearence.setAmbient(0.3,0.5,0.4,1);
-		this.sandAppearence.setDiffuse(1,1,0.6,1);
-		this.sandAppearence.setSpecular(0.2,0.2,0.2,1);	
+		this.sandAppearence.setDiffuse(1,1,1,1);
+		this.sandAppearence.setSpecular(0.8,0.8,0.8,1);	
 		this.sandAppearence.setShininess(4);
 		
 		this.sandAppearence.loadTexture("/images/sand.jpg");
