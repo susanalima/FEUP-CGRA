@@ -32,10 +32,16 @@ class MyMovingVehicle extends CGFobject{
 	{
 		if (this.isMoving)
 		{
-			this.x -= this.velocity*this.xdeltaMov*Math.cos(this.angle);
-			this.z += this.velocity*this.xdeltaMov*Math.sin(this.angle);
-			this.updateWheels(currTime);
+			var deltaX;
+			var deltaZ;
+			deltaX = this.velocity*this.xdeltaMov*Math.cos(this.angle);
+			deltaZ = this.velocity*this.xdeltaMov*Math.sin(this.angle);
+			this.x -= deltaX;
+			this.z += deltaZ;
 
+			if (Math.abs(deltaX) < 0.00000000000001)
+				this.velocity = 0;
+			this.updateWheels(currTime);
 		}
 	
 	}
@@ -87,8 +93,8 @@ class MyMovingVehicle extends CGFobject{
 	{
 		if (this.vehicle.frontRightWheel.movSide >  -this.maxTurningAngle)
 		{
-			this.vehicle.frontRightWheel.movSide -= 5;
-			this.vehicle.frontLeftWheel.movSide -= 5;
+			this.vehicle.frontRightWheel.movSide -= 5*this.velocity*100;
+			this.vehicle.frontLeftWheel.movSide -= 5*this.velocity*100;
 		}
 	}
 
@@ -97,15 +103,15 @@ class MyMovingVehicle extends CGFobject{
 	{
 		if (this.vehicle.frontRightWheel.movSide < this.maxTurningAngle)
 		{
-			this.vehicle.frontRightWheel.movSide += 5;
-			this.vehicle.frontLeftWheel.movSide += 5;
+			this.vehicle.frontRightWheel.movSide += 5*this.velocity*100;
+			this.vehicle.frontLeftWheel.movSide += 5*this.velocity*100;
 		}
 	}
 
 
 	display()
 	{
-		if (this.isMoving )
+		if (this.isMoving)
 			this.movingAngle = this.angle;
 
 			this.scene.translate(this.x+1.4,0,this.z+0.9);	
@@ -114,7 +120,6 @@ class MyMovingVehicle extends CGFobject{
 
 	
 
-		if(this.x < -0.0001  || this.x > 0.0001)
 			this.scene.translate(this.x,0,this.z);
 
 		

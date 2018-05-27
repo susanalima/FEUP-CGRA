@@ -174,7 +174,8 @@ class LightingScene extends CGFscene
 		{
 			text+=" A ";
 			this.vehicle.turnFrontWheelsToTheLeft();
-			this.vehicle.angle += 0.05;
+			//this.vehicle.angle += 0.05;
+			this.vehicle.angle += 0.05*this.vehicle.velocity*100;
 	
 			keysPressed=true;
 
@@ -184,8 +185,8 @@ class LightingScene extends CGFscene
 		{
 			text+=" D ";
 			this.vehicle.turnFrontWheelsToTheRight();
-			
-			this.vehicle.angle -= 0.05;
+			//this.vehicle.angle -= 0.05;
+			this.vehicle.angle -= 0.05*this.vehicle.velocity*100;
 	
 			keysPressed=true;
 
