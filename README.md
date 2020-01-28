@@ -1,7 +1,7 @@
 # FEUP-CGRA
 Project developed for Computer Graphics class.
 
-Made in colaboration with [Afonso Azevedo](https://github.com/4-Z3r0)
+Made in colaboration with [Afonso Azevedo](https://github.com/4-Z3r0).
 
 ## Final Project
 
